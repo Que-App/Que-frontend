@@ -5,7 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module'
-
+import { CoreModule } from './core/core.module'
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -17,8 +18,9 @@ import { MaterialModule } from './material.module'
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    CoreModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

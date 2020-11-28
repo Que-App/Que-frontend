@@ -1,0 +1,30 @@
+<div class="main-container">
+    <nav>
+        <span>Que</span>
+        <div class="icons-container">
+            <mat-icon class="icon" (click)="logOut()">meeting_room</mat-icon>
+            <mat-icon class="icon" id="settings" (click)="routeTo('settings')" >settings</mat-icon>
+        </div>
+    </nav>
+    <section class="boxes-container">
+        <div class="block" id="main-block">
+            <div class="welcome-text-container">
+                <p>Hello there <span class="user">Piotr</span></p>
+                <p>{{ currentDate }}<br>{{ currentHour }}</p>
+            </div>
+            <p>There is no lesson now :(</p>
+        </div>
+        <div class="block" id="notes-block" (click)="routeTo('notes')">
+            <p>Notes</p>
+        </div>
+        <div class="block" id="queues-block" (click)="routeTo('queues')">
+            <p>Your Queues</p>
+        </div>
+        <div class="block" id="schedule-block" (click)="routeTo('schedule')">
+            <p>Your Schedule</p>
+        </div>
+        <div class="block" id="class-block" (click)="routeTo('class')">
+            <p>Your class</p>
+        </div>
+    </section>
+</div>
