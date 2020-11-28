@@ -1,0 +1,49 @@
+.main-container {
+    background-color: #f4f4f4;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    align-self: center;
+    margin: auto;
+}
+
+.avatar-icon {
+    font-size: 130px;
+    height: 130px;
+    width: 130px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: #29658a;
+}
+
+input[type=text], input[type=password] {
+    border: 1px solid #29658a;
+    border-radius: 4px;
+    padding: 8px 20px;
+    margin: 5px 30px;
+    font-size: large;
+}
+
+input[type=submit] {
+    border: none;
+    border-radius: 4px;
+    background-color: #29658a;
+    padding: 8px 20px;
+    margin: 10px 30px;
+    color: white;
+    cursor: pointer;
+}
+
+input[type=submit]:hover, input[type=submit]:active {
+    background-color: #29538a;
+    outline: none;
+    border: none;
+}

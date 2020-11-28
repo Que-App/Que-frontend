@@ -1,0 +1,10 @@
+<div class="main-container">
+    <section class='login-container'>
+        <mat-icon class="avatar-icon">account_circle</mat-icon>
+        <input type='text' placeholder='Enter your login' #login required>
+        <input type='password' placeholder='Enter your password' #password required>
+        <input type='submit' value='Log in' (click)='logIn(login.value, password.value)'>
+    </section>
+<div>
+
+
