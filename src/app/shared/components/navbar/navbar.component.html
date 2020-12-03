@@ -1,0 +1,10 @@
+<section class='navbar-container'>
+    <div class='path-container' >
+        <div class='path-element' *ngFor='let path of pathList'>
+            <a class='path' (click)='routeTo(path)'>{{ path.toUpperCase() }}</a>
+            <mat-icon class='arrow-icon' *ngIf='pathList.indexOf(path) < pathList.length-1'>
+                keyboard_arrow_right
+            </mat-icon>
+        </div>
+    </div>
+</section>

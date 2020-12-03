@@ -1,0 +1,41 @@
+.navbar-container {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #c51e1e;
+    margin: 0;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.path-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.path-element {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    color: white;
+    align-items: center;
+}
+
+.path {
+    cursor: pointer;
+}
+
+.arrow-icon {
+    font-size: 1em;
+    height: 1em;
+    align-self: center;
+    text-align: center;
+    margin: 0 3px;
+}

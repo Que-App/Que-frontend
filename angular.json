@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "QueueAngular"
+  "defaultProject": "QueueAngular",
+  "cli": {
+    "analytics": false
+  }
 }
