@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { GetRepositoryService } from 'src/app/data/repositories/get-repository.service'
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,10 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private datePipe: DatePipe,
-  ) {}
+    private getRepo: GetRepositoryService
+  ) {
+    getRepo.getSubjects().subscribe((subs => console.log(subs)))
+  }
 
   ngOnInit(): void {
     setInterval(() => this.timeUpdater(), 1000)

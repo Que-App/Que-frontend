@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module'
 import { CoreModule } from './core/core.module'
 import { DatePipe } from '@angular/common';
+import { DataModule } from '../app/data/data.module'
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,8 +19,10 @@ import { DatePipe } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule,
-    CoreModule
+    CoreModule,
+    DataModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
