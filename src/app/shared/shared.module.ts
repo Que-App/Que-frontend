@@ -4,7 +4,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from '../material.module';
 
 
-
 @NgModule({
   declarations: [NavbarComponent],
   imports: [
