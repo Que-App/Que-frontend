@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../../shared/shared.module'
 
-import { ScheduleComponent } from './components/schedule/schedule.component'
+import { ScheduleComponent } from './components/schedule/schedule.component';
+import { SelectorComponent } from './components/selector/selector.component'
 
 @NgModule({
-  declarations: [ScheduleComponent],
+  declarations: [ScheduleComponent, SelectorComponent],
   imports: [
     CommonModule,
     SharedModule

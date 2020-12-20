@@ -1,6 +1,12 @@
 <app-navbar [pathList]="pathList"></app-navbar>
 <section>
-    <div class="container"></div>
-    <div class="container"></div>
-    <div class="container"></div>
+    <div class="container">
+        <app-selector [list]='subjects'></app-selector>
+    </div>
+    <div class="container">
+        <app-selector [list]='lessons'></app-selector>
+    </div>
+    <div class="container">
+        <app-selector [list]='queue'></app-selector>
+    </div>
 </section>
