@@ -1,4 +1,4 @@
-export class LessonOccurence {
+export interface LessonOccurence {
     lessonid: number;
     userid: number;
     lessonindex: number;
