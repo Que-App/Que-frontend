@@ -1,12 +1,24 @@
 <app-navbar [pathList]="pathList"></app-navbar>
 <section>
     <div class="container">
-        <app-selector [list]='subjects'></app-selector>
+        <mat-selection-list #subject [multiple]="false">
+            <mat-list-option *ngFor="let subject of subjects" (click)="setCurrentObject('subject', subject)">
+              {{subject.name}}
+            </mat-list-option>
+        </mat-selection-list>
     </div>
     <div class="container">
-        <app-selector [list]='lessons'></app-selector>
+        <mat-selection-list #lesson [multiple]="false">
+            <mat-list-option *ngFor="let lesson of lessons" (click)="setCurrentObject('lesson', lesson)">
+              {{ lesson.nextDate | date: "EEEE" }}<br>{{ lesson.nextDate | date: "dd/MM/yyyy" }}
+            </mat-list-option>
+        </mat-selection-list>
     </div>
     <div class="container">
-        <app-selector [list]='queue'></app-selector>
+        <mat-list #users>
+            <mat-list-item *ngFor="let lesson of queue">
+              {{ lesson.username }}
+            </mat-list-item>
+        </mat-list>
     </div>
 </section>

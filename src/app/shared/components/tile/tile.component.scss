@@ -1,7 +1,7 @@
 
 .main-container {
     background-color: #5AB9EA;
-    padding: 15px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,15 +12,4 @@
         transform: scale(1.03);
         vertical-align: middle;
     }
-}
-
-.content-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid white;
-    width: 80%;
-    height: 50%;
 }

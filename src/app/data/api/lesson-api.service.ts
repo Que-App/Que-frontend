@@ -17,7 +17,7 @@ export class LessonApiService {
   ) { }
 
   getLessons(subjectId: string): Observable<Lesson[]> {
-    const requestUrl = `${this.globals.BASE_URL}/subjects/${subjectId}/lesson`;
+    const requestUrl = `${this.globals.BASE_URL}/subjects/${subjectId}/lessons`;
     return this.http.get<Lesson[]>(requestUrl);
   }
 

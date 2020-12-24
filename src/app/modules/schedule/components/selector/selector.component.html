@@ -1,3 +1,5 @@
-<app-tile *ngFor="let element of list">
-    <h3>{{ element }}</h3>
-</app-tile>
+<mat-selection-list #shoes [multiple]="false">
+    <mat-list-option *ngFor="let shoe of list" [value]="shoe">
+      {{shoe}}
+    </mat-list-option>
+</mat-selection-list>

@@ -1,4 +1,4 @@
-export interface LessonOccurence {
+export interface LessonOccurrence {
     lessonid: number;
     userid: number;
     lessonindex: number;

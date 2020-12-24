@@ -2,11 +2,12 @@ section {
     width: 100%;
     padding-top: 60px;
     display: grid;
-    grid-template-columns: 1.5fr 1.5fr 2fr;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr;
     grid-template-rows: 1fr;
-    grid-gap: 10px;
 }
 
 .container {
     border: 1px solid #c51e1e;
+    border-top: none;
+    border-bottom: none;
 }
