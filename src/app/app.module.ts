@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,9 @@ import { CoreModule } from './core/core.module'
 import { DatePipe } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 import { ScheduleModule } from './modules/schedule/schedule.module'
+import { DataModule } from '../app/data/data.module'
+import { Globals } from './globals'
+import { JwtInterceptor } from './data/jwt-interceptor.service'
 
 
 @NgModule({
@@ -19,12 +23,22 @@ import { ScheduleModule } from './modules/schedule/schedule.module'
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule,
     CoreModule,
     SharedModule,
-    ScheduleModule
+    ScheduleModule,
+    DataModule
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    Globals,
+    { 
+      provide: HTTP_INTERCEPTORS, 
+      useClass: JwtInterceptor, 
+      multi: true 
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
