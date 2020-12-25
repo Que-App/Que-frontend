@@ -16,8 +16,8 @@
     </div>
     <div class="container">
         <mat-list #users>
-            <mat-list-item *ngFor="let lesson of queue">
-              {{ lesson.username }}
+            <mat-list-item *ngFor="let occurrence of queue">
+              {{ occurrence.username }} {{ occurrence.date }}
             </mat-list-item>
         </mat-list>
     </div>

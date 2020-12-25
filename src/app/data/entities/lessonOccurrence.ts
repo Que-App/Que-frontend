@@ -1,7 +1,7 @@
 export interface LessonOccurrence {
-    lessonid: number;
-    userid: number;
-    lessonindex: number;
+    lessonId: number;
+    userId: number;
+    lessonIndex: number;
     date: Date;
     username: string;
 }

@@ -1,11 +1,8 @@
 export interface Lesson {
     id: string;
-    lessonindex: string;
-    subjectid: string;
-    nextdate: string;
+    lessonIndex: string;
+    subjectId: string;
+    nextDate: string;
     time: string;
-    recurrenceinterval: string;
-    userid: string;
-    username: string;
-    date: string;
+    recurrenceInterval: string;
 }

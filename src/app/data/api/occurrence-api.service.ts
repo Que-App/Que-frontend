@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Globals } from '../../globals';
-import { Lesson } from '../entities/lesson';
 import { LessonOccurrence } from '../entities/lessonOccurrence'
 
 @Injectable({
@@ -16,13 +15,13 @@ export class OccurrenceApiService {
     private globals: Globals
   ) { }
 
-  getPast(lessonId: string, num: number): Observable<LessonOccurrence> {
+  getPast(lessonId: string, num: number): Observable<LessonOccurrence[]> {
     const requestUrl = `${this.globals.BASE_URL}/occurrences/past/${lessonId}/${num}`;
-    return this.http.get<LessonOccurrence>(requestUrl);
+    return this.http.get<LessonOccurrence[]>(requestUrl);
   }
 
-  getNext(lessonId: string, num: number): Observable<Lesson[]> {
+  getNext(lessonId: string, num: number): Observable<LessonOccurrence[]> {
     const requestUrl = `${this.globals.BASE_URL}/occurrences/next/${lessonId}/${num}`;
-    return this.http.get<Lesson[]>(requestUrl);
+    return this.http.get<LessonOccurrence[]>(requestUrl);
   }
 }
