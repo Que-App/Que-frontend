@@ -57,7 +57,7 @@ nav {
     justify-self: center;
 }
 
-.block {
+.active-block {
     background-color: white;
     transition: transform 0.5s;
     min-width: 100px;
@@ -67,6 +67,12 @@ nav {
         transform: scale(1.03);
         vertical-align: middle;
     }
+}
+
+.disabled-block {
+    background-color: rgb(234, 234, 234);
+    min-width: 100px;
+    box-shadow: 0px 0px 42px 14px rgba(170,167,167,0.4);
 }
 
 #main-block {

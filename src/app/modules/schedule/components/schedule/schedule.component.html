@@ -1,9 +1,9 @@
-<app-navbar [pathList]="pathList"></app-navbar>
+<app-navbar [pathList]="navPathList"></app-navbar>
 <section>
     <div class="container">
         <mat-selection-list #subject [multiple]="false">
             <mat-list-option *ngFor="let subject of subjects" (click)="setCurrentObject('subject', subject)">
-              {{subject.name}}
+              {{ subject.name }}
             </mat-list-option>
         </mat-selection-list>
     </div>
@@ -15,9 +15,9 @@
         </mat-selection-list>
     </div>
     <div class="container">
-        <mat-list #users>
-            <mat-list-item *ngFor="let occurrence of queue">
-              {{ occurrence.username }} {{ occurrence.date }}
+        <mat-list #occurrences>
+            <mat-list-item class="occurrence-tile" *ngFor="let occurrence of queue">
+              {{ occurrence.username }}<br>{{ occurrence.date }}
             </mat-list-item>
         </mat-list>
     </div>

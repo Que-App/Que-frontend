@@ -2,7 +2,7 @@ section {
     width: 100%;
     padding-top: 60px;
     display: grid;
-    grid-template-columns: 1.5fr 1.5fr 1.5fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
 }
 
@@ -10,4 +10,10 @@ section {
     border: 1px solid #c51e1e;
     border-top: none;
     border-bottom: none;
+    height: 90.5vh;
+    overflow: auto;
+}
+
+.occurrence-tile:hover {
+    background-color: rgb(245, 245, 245);
 }

@@ -6,3 +6,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-list-text {
     text-align: center;
 }
+
+.mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+    text-align: center;
+    justify-content: center;
+    
+    &:nth-of-type(even) {
+        background-color: yellow;
+    }
+}
