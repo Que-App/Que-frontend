@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { AuthenticationService } from 'src/app/auth/services/authentication.service'
+
 @Component({
   selector: 'app-authorisation',
   templateUrl: './authorisation.component.html',
@@ -10,12 +12,13 @@ export class AuthorisationComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private authenticationService: AuthenticationService
     ) { }
 
   ngOnInit() {}
 
   logIn(login: string, password: string) {
-    // this.dataService.logIn(login, password);
+    this.authenticationService.logIn(login, password);
     this.router.navigateByUrl('/home');
   }
 }

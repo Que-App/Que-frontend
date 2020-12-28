@@ -2,21 +2,18 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { Globals } from 'src/app/globals';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JwtInterceptor implements HttpInterceptor{
 
-  constructor(
-    private globals: Globals
-  ) { }
+  constructor() { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     request = request.clone({
       setHeaders: {
-        Authorization: `Bearer ${this.globals.TOKEN}`
+        Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     });
     return next.handle(request);
