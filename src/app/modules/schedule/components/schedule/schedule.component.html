@@ -17,7 +17,7 @@
     <div class="container">
         <mat-list #occurrences>
             <mat-list-item class="occurrence-tile" *ngFor="let occurrence of queue">
-              {{ occurrence.username }}<br>{{ occurrence.date }}
+              {{ occurrence.username }}<br>{{ occurrence.date | date: "dd/MM/yyyy"}}
             </mat-list-item>
         </mat-list>
     </div>

@@ -1,5 +1,6 @@
 .navbar-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
@@ -38,4 +39,26 @@
     align-self: center;
     text-align: center;
     margin: 0 3px;
+}
+
+.icons-container {
+    display: flex;
+    width: 100px;
+    margin-right: 2.5%;
+    justify-content: space-between;
+}
+
+.icon {
+    font-size: 1.5em;
+    cursor: pointer;
+    margin: 0;
+    color: white;
+}
+
+#settings {
+    transition: transform, 1s;
+
+    &:hover {
+        transform: rotate(180deg);
+    }
 }
