@@ -12,7 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { ScheduleModule } from './modules/schedule/schedule.module'
 import { DataModule } from '../app/data/data.module'
 import { Globals } from './globals'
-import { JwtInterceptor } from './data/jwt-interceptor.service'
+import { JwtInterceptor } from './auth/services/jwt-interceptor.service'
 
 
 @NgModule({
