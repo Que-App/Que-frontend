@@ -8,6 +8,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  appTitle = ['Que']
   currentDate: string;
   currentHour: string;
 

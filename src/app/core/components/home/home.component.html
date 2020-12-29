@@ -1,11 +1,5 @@
 <div class="main-container">
-    <nav>
-        <span>Que</span>
-        <div class="icons-container">
-            <mat-icon class="icon" (click)="logOut()">meeting_room</mat-icon>
-            <mat-icon class="icon" id="settings" (click)="routeTo('settings')" >settings</mat-icon>
-        </div>
-    </nav>
+    <app-navbar [pathList]="appTitle"></app-navbar>
     <section class="boxes-container">
         <div class="active-block" id="main-block">
             <div class="welcome-text-container">
