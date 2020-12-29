@@ -1,24 +1,26 @@
-<app-navbar [pathList]="navPathList"></app-navbar>
-<section>
-    <div class="container">
-        <mat-selection-list #subject [multiple]="false">
-            <mat-list-option *ngFor="let subject of subjects" (click)="setCurrentObject('subject', subject)">
-              {{ subject.name }}
-            </mat-list-option>
-        </mat-selection-list>
-    </div>
-    <div class="container">
-        <mat-selection-list #lesson [multiple]="false">
-            <mat-list-option *ngFor="let lesson of lessons" (click)="setCurrentObject('lesson', lesson)">
-              {{ lesson.nextDate | date: "EEEE" }}<br>{{ lesson.nextDate | date: "dd/MM/yyyy" }}
-            </mat-list-option>
-        </mat-selection-list>
-    </div>
-    <div class="container">
-        <mat-list #occurrences>
-            <mat-list-item class="occurrence-tile" *ngFor="let occurrence of queue">
-              {{ occurrence.username }}<br>{{ occurrence.date | date: "dd/MM/yyyy"}}
-            </mat-list-item>
-        </mat-list>
-    </div>
-</section>
+<div class="layout-organizer">
+    <app-navbar [pathList]="navPathList"></app-navbar>
+    <section>
+        <div class="container">
+            <mat-selection-list #subject [multiple]="false">
+                <mat-list-option *ngFor="let subject of subjects" (click)="setCurrentObject('subject', subject)">
+                {{ subject.name }}
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
+        <div class="container">
+            <mat-selection-list #lesson [multiple]="false">
+                <mat-list-option *ngFor="let lesson of lessons" (click)="setCurrentObject('lesson', lesson)">
+                {{ lesson.nextDate | date: "EEEE" }}<br>{{ lesson.nextDate | date: "dd/MM/yyyy" }}
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
+        <div class="container">
+            <mat-list #occurrences>
+                <mat-list-item class="occurrence-tile" *ngFor="let occurrence of queue">
+                {{ occurrence.username }}<br>{{ occurrence.date | date: "dd/MM/yyyy"}}
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </section>
+</div>
