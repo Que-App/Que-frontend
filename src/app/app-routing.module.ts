@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+import { AuthGuardService } from './auth/services/auth-guard.service';
 import { AuthorisationComponent } from './core/components/authorisation/authorisation.component';
 import { HomeComponent } from './core/components/home/home.component';
 import { ScheduleComponent } from './modules/schedule/components/schedule/schedule.component';
