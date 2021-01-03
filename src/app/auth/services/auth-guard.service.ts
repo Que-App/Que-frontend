@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 
 import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService {
+export class AuthGuardService implements CanActivate {
 
   constructor(
     public auth: AuthenticationService, 
@@ -14,11 +14,12 @@ export class AuthGuardService {
   ) {}
   
     canActivate(): boolean {
-    if (!this.auth.isUserAuthenticated()) {
-      this.router.navigateByUrl('/auth');
-      return false;
+    if (this.auth.isUserAuthenticated()) {
+      return true;
     }
-    return true;
+    console.log(localStorage.getItem('token'))
+    this.router.navigateByUrl('/auth');
+    return false;
   }
 
 }

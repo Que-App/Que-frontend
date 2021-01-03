@@ -17,6 +17,7 @@ export class AuthenticationService {
     if(localStorage.getItem('token') != null) this.logOut();
     this.userApi.authUser(username, password).subscribe(authResponse => {
       localStorage.setItem('token', authResponse.token);
+      this.router.navigateByUrl('/home');
     });
   }
 
@@ -28,12 +29,11 @@ export class AuthenticationService {
   isUserAuthenticated(): boolean {
     if(localStorage.getItem('token') == null || this.isTokenExpired(localStorage.getItem('token')))
       return false; 
-    else true;
+    else return true;
   }
 
   private isTokenExpired(token: string): boolean {
     const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
     return (Math.floor((new Date).getTime() / 1000)) >= expiry;
   }
-
 }

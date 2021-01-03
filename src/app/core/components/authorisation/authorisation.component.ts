@@ -19,6 +19,5 @@ export class AuthorisationComponent implements OnInit {
 
   logIn(login: string, password: string) {
     this.authenticationService.logIn(login, password);
-    this.router.navigateByUrl('/home');
   }
 }
