@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+import jwt_decode, { JwtPayload } from 'jwt-decode';
 import { UserApiService } from 'src/app/data/api/user-api.service';
 
 @Injectable({
@@ -27,13 +28,12 @@ export class AuthenticationService {
   }
 
   isUserAuthenticated(): boolean {
-    if(localStorage.getItem('token') == null || this.isTokenExpired(localStorage.getItem('token')))
+    if(localStorage.getItem('token') == null || this.isTokenExpired(jwt_decode<JwtPayload>(localStorage.getItem('token')).exp))
       return false; 
     else return true;
   }
 
-  private isTokenExpired(token: string): boolean {
-    const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
-    return (Math.floor((new Date).getTime() / 1000)) >= expiry;
+  private isTokenExpired(token: number): boolean {
+    return (Math.floor((new Date).getTime() / 1000)) >= token;
   }
 }

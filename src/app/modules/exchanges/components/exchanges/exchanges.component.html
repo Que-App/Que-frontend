@@ -1,0 +1,76 @@
+<div class="layout-organizer">
+    <app-navbar [pathList]='navPathList'></app-navbar>
+    <section>
+        <div class="buttons">
+            <button mat-raised-button type="button">Incoming exchanges</button>
+            <button mat-raised-button type="button">Outgoing exchanges</button>
+        </div>
+        <div class="forms-container" >
+            <p>Your lesson</p>
+            <form [formGroup]="formGroup" (ngSubmit)="sendExchangeRequest()">
+                <div class="form-part">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Subject</mat-label>
+                        <mat-select formControlName='senderSubject'>
+                            <mat-option *ngFor="let subject of senderSubjects" value="{{subject.name}}" (click)='setCurrentSenderObject("subject", subject)'>
+                                {{subject.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Lesson</mat-label>
+                        <mat-select formControlName='senderLesson'>
+                            <mat-option *ngFor="let lesson of senderLessons" value="{{lesson.id}}" (click)='setCurrentSenderObject("lesson", lesson)'>
+                                {{lesson.nextDate | date: 'EEEE'}} - {{lesson.time}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Date</mat-label>
+                        <mat-select formControlName='senderDate'>
+                            <mat-option *ngFor="let occurrence of senderQueue" value="{{occurrence.username}}" (click)='setCurrentSenderObject("occurrence", occurrence)'>
+                                {{ occurrence.date | date: 'dd/MM/yyyy'}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                
+                <mat-icon>keyboard_arrow_down</mat-icon>
+                <p>Receiver's lesson</p>
+
+                <div class="form-part">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Subject</mat-label>
+                        <mat-select formControlName="receiverSubject">
+                            <mat-option *ngFor="let subject of receiverSubjects" value="{{subject.name}}" (click)='setCurrentReceiverObject("subject", subject)'>
+                                {{subject.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Lesson</mat-label>
+                        <mat-select formControlName="receiverLesson">
+                            <mat-option *ngFor="let lesson of receiverLessons" value="{{lesson.id}}" (click)='setCurrentReceiverObject("lesson", lesson)'>
+                                {{lesson.nextDate | date: 'EEEE'}} - {{lesson.time}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="fill">
+                        <mat-label>User and Date</mat-label>
+                        <mat-select formControlName="receiverDate">
+                            <mat-option *ngFor="let occurrence of receiverQueue" value="{{occurrence.username}}" (click)='setCurrentReceiverObject("occurrence", occurrence)'>
+                                {{ occurrence.username }} - {{ occurrence.date | date: 'dd/MM/yyyy'}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button type="submit" [disabled]="!formGroup.valid">Send request</button>
+            </form>
+            
+        </div>
+    </section>
+</div>

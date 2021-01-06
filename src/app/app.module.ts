@@ -5,14 +5,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MaterialModule } from './material.module'
-import { CoreModule } from './core/core.module'
+import { MaterialModule } from './material.module';
+import { CoreModule } from './core/core.module';
 import { DatePipe } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
-import { ScheduleModule } from './modules/schedule/schedule.module'
-import { DataModule } from '../app/data/data.module'
-import { Globals } from './globals'
-import { JwtInterceptor } from './auth/services/jwt-interceptor.service'
+import { ExchangesModule } from './modules/exchanges/exchanges.module';
+import { ScheduleModule } from './modules/schedule/schedule.module';
+import { DataModule } from '../app/data/data.module';
+import { Globals } from './globals';
+import { JwtInterceptor } from './auth/services/jwt-interceptor.service';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { JwtInterceptor } from './auth/services/jwt-interceptor.service'
     MaterialModule,
     CoreModule,
     SharedModule,
+    ExchangesModule,
     ScheduleModule,
     DataModule
   ],

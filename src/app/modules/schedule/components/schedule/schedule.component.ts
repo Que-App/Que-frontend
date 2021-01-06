@@ -8,7 +8,7 @@ import { Subject } from 'src/app/data/entities/subject';
 import { LessonOccurrence } from 'src/app/data/entities/lessonOccurrence';
 import { Subject as rxSubject, Subscription} from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
-import { EntityType } from './entityType.enum'
+import { EntityType } from '../../enums/entityType.enum'
 
 
 @Component({
@@ -39,7 +39,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   constructor(
     private subjectApi: SubjectApiService,
     private lessonApi: LessonApiService,
-    private occurrenceApi: OccurrenceApiService
+    private occurrenceApi: OccurrenceApiService,
   ) { }
 
   ngOnInit(): void {
@@ -75,7 +75,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
       }
       case EntityType.LESSON: {
         this.currentLesson = object;
-        this.currentLessonChange.next(this.currentLesson);
+        this.currentLessonChange.next(this.currentLesson);        
         break;
       }
     }

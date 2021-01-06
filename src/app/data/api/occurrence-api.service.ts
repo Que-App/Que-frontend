@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Predicate } from '@angular/core';
 import { Observable } from 'rxjs';
+import { filter, flatMap, toArray } from 'rxjs/operators';
 
 import { Globals } from '../../globals';
 import { LessonOccurrence } from '../entities/lessonOccurrence'
@@ -23,5 +24,14 @@ export class OccurrenceApiService {
   getNext(lessonId: string, num: number): Observable<LessonOccurrence[]> {
     const requestUrl = `${this.globals.BASE_URL}/occurrences/next/${lessonId}/${num}`;
     return this.http.get<LessonOccurrence[]>(requestUrl);
+  }
+
+  filterOccurrences(lessonId: string, predicate: Predicate<LessonOccurrence>) {
+    return this.getNext(lessonId, 15)
+    .pipe(
+      flatMap(occurrences => occurrences),
+      filter(predicate),
+      toArray()
+    );
   }
 }
