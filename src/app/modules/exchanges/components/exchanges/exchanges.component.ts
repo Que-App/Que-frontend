@@ -12,6 +12,7 @@ import { EntityType } from '../../enums/entityType.enum'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-exchanges',
@@ -20,6 +21,7 @@ import { DatePipe } from '@angular/common';
 })
 export class ExchangesComponent implements OnInit, OnDestroy {
   navPathList = ['home','exchanges'];
+  userId: string = jwtDecode<JwtPayload>(localStorage.getItem('token')).sub;
 
   //Fields for sender
   senderSubjects: Subject[] = [];
@@ -75,7 +77,7 @@ export class ExchangesComponent implements OnInit, OnDestroy {
     private lessonApi: LessonApiService,
     private occurrenceApi: OccurrenceApiService,
     private exchangeApi: ExchangeApiService,
-    private formBuilder: FormBuilder,
+    private router: Router,
     private datePipe: DatePipe
   ) { }
 
@@ -105,7 +107,7 @@ export class ExchangesComponent implements OnInit, OnDestroy {
     }));
 
     this.subscription.add(this.currentSenderLessonChange.pipe(
-      mergeMap(lesson => this.occurrenceApi.filterOccurrences(lesson.id, (occurrence => occurrence.username === 'piotrek')))
+      mergeMap(lesson => this.occurrenceApi.filterOccurrences(lesson.id, (occurrence => occurrence.userId === (+this.userId)), 21))
     )
     .subscribe(occurrences => {
       this.senderQueue = occurrences;
@@ -128,7 +130,7 @@ export class ExchangesComponent implements OnInit, OnDestroy {
     }));
 
     this.subscription.add(this.currentReceiverLessonChange.pipe(
-        mergeMap(lesson => this.occurrenceApi.filterOccurrences(lesson.id, (occurrence => occurrence.username !== 'piotrek')))
+        mergeMap(lesson => this.occurrenceApi.filterOccurrences(lesson.id, (occurrence => occurrence.userId !== (+this.userId)), 21))
       )
       .subscribe(occurrences => {
         this.receiverQueue = occurrences;
@@ -191,7 +193,7 @@ export class ExchangesComponent implements OnInit, OnDestroy {
 
   sendExchangeRequest() {
     this.exchangeApi.submitRequest(
-      +(jwtDecode<JwtPayload>(localStorage.getItem('token')).sub),
+      +(this.userId),
       +(this.currentSenderLesson.id),
       this.datePipe.transform(this.currentSenderOccurrence.date, 'yyyy-MM-dd'),
       +(this.currentReceiverOccurrence.userId),

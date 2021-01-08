@@ -4,21 +4,26 @@ import { ExchangesComponent } from './components/exchanges/exchanges.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material.module';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { ExchangesNavbarComponent } from './components/exchanges-navbar/exchanges-navbar.component';
+import { IncomingExchangesComponent } from './components/incoming-exchanges/incoming-exchanges.component';
+import { RouterModule } from '@angular/router';
+import { ExchangeRequestStatusFilterComponent } from './exchange-request-status-filter/exchange-request-status-filter.component';
 
 
 
 @NgModule({
-  declarations: [ExchangesComponent],
+  declarations: [ExchangesComponent, ExchangesNavbarComponent, IncomingExchangesComponent, ExchangeRequestStatusFilterComponent],
   imports: [
     CommonModule,
     SharedModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [
     FormBuilder,
-    
-  ], exports: [
+  ], 
+  exports: [
     ReactiveFormsModule
   ]
 })

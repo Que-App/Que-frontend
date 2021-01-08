@@ -26,8 +26,8 @@ export class OccurrenceApiService {
     return this.http.get<LessonOccurrence[]>(requestUrl);
   }
 
-  filterOccurrences(lessonId: string, predicate: Predicate<LessonOccurrence>) {
-    return this.getNext(lessonId, 15)
+  filterOccurrences(lessonId: string, predicate: Predicate<LessonOccurrence>, num: number) {
+    return this.getNext(lessonId, num)
     .pipe(
       flatMap(occurrences => occurrences),
       filter(predicate),

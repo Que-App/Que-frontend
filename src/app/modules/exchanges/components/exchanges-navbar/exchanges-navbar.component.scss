@@ -1,0 +1,14 @@
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-icon {
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+}
+
+#exchanges-icon {
+    transform: rotate(90deg);
+}

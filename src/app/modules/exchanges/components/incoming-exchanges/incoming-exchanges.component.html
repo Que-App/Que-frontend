@@ -1,0 +1,10 @@
+<div class="layout-organizer">
+    <app-navbar [pathList]='navPathList'></app-navbar>
+    <!-- <app-exchanges-navbar></app-exchanges-navbar> -->
+    <section>
+        <app-exchange-request-status-filter [requestsChange]="allRequestsChange" (filteredRequests)="setFilteredRequests($event)"></app-exchange-request-status-filter>
+        <div *ngFor="let request of filteredRequests">
+            {{ request.id }} {{ request.status }}
+        </div>
+    </section>
+</div>

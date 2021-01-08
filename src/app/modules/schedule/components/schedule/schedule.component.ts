@@ -58,7 +58,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
     }));
 
     this.subscription.add(this.currentLessonChange.pipe(
-      mergeMap(lesson => this.occurrenceApi.getNext(lesson.id, 15))
+      mergeMap(lesson => this.occurrenceApi.getNext(lesson.id, 21))
     ).subscribe(occurrences => this.queue = occurrences));
   }
 
