@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./exchanges-navbar.component.scss']
 })
 export class ExchangesNavbarComponent implements OnInit {
-  @Input('active') activeIcon: string; 
+  @Input('activeIcon') activeIcon: string; 
 
   position: TooltipPosition = 'right';
 

@@ -1,0 +1,27 @@
+<section>
+    <div class="sender-container container">
+        <p class="description">Sender:</p>
+        <h4 class="value">Jan U</h4>
+    </div>
+    <div class="lesson-details-container container">
+        <div class="from-lesson-container container">
+            <p class="description">From:</p>
+            <h4 class="value">Sieci, Monday 08:00<br>{{ request.fromDate }}</h4>
+        </div>
+        <div class="to-lesson-container container">
+            <p class="description">To:</p>
+            <h4 class="value">{{ request.toLessonId }}, {{ request.toDate }}</h4>
+        </div>
+    </div>
+    <div class="request-details-container container">
+        <div class="date-container container">
+            <p class="description">Date:</p>
+            <h4 class="value">{{ request.resolvmentDate }}</h4>
+        </div>
+        <div class="to-lesson-container container">
+            <p class="description">Status:</p>
+            <h4 class="value">{{ request.status }}</h4>
+        </div>
+    </div>
+        
+</section>

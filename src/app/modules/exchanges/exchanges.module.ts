@@ -8,11 +8,12 @@ import { ExchangesNavbarComponent } from './components/exchanges-navbar/exchange
 import { IncomingExchangesComponent } from './components/incoming-exchanges/incoming-exchanges.component';
 import { RouterModule } from '@angular/router';
 import { ExchangeRequestStatusFilterComponent } from './components/exchange-request-status-filter/exchange-request-status-filter.component';
+import { RequestTailComponent } from './components/request-tail/request-tail.component';
 
 
 
 @NgModule({
-  declarations: [ExchangesComponent, ExchangesNavbarComponent, IncomingExchangesComponent, ExchangeRequestStatusFilterComponent],
+  declarations: [ExchangesComponent, ExchangesNavbarComponent, IncomingExchangesComponent, ExchangeRequestStatusFilterComponent, RequestTailComponent],
   imports: [
     CommonModule,
     SharedModule,
