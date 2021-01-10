@@ -1,11 +1,11 @@
 <div class="layout-organizer">
     <app-navbar [pathList]='navPathList'></app-navbar>
-    <!-- <app-exchanges-navbar></app-exchanges-navbar> -->
+    <app-exchanges-navbar [active]="exchangeNavIcon"></app-exchanges-navbar>
     <section>
-        <div class="buttons">
+        <!-- <div class="buttons">
             <a routerLink="/exchanges/incoming" routerLinkActive="active"><button mat-raised-button type="button" >Incoming exchanges</button></a>
             <button mat-raised-button type="button">Outgoing exchanges</button>
-        </div>
+        </div> -->
         <div class="forms-container" >
             <p>Your lesson</p>
             <form [formGroup]="formGroup" (ngSubmit)="sendExchangeRequest()">

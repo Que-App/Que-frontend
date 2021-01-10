@@ -4,6 +4,13 @@
     height: 100%;
 }
 
+app-exchanges-navbar {
+    position: fixed;
+    left: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 section {
     height: 100%;
     display: flex;

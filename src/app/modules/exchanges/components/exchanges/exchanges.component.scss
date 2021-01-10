@@ -13,6 +13,14 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+app-exchanges-navbar {
+    position: fixed;
+    left: 2%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .buttons {

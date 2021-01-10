@@ -7,7 +7,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ExchangesNavbarComponent } from './components/exchanges-navbar/exchanges-navbar.component';
 import { IncomingExchangesComponent } from './components/incoming-exchanges/incoming-exchanges.component';
 import { RouterModule } from '@angular/router';
-import { ExchangeRequestStatusFilterComponent } from './exchange-request-status-filter/exchange-request-status-filter.component';
+import { ExchangeRequestStatusFilterComponent } from './components/exchange-request-status-filter/exchange-request-status-filter.component';
 
 
 

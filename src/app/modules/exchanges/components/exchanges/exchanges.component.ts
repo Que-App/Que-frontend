@@ -9,7 +9,7 @@ import { Lesson } from 'src/app/data/entities/lesson';
 import { LessonOccurrence } from 'src/app/data/entities/lessonOccurrence';
 import { Subject } from 'src/app/data/entities/subject';
 import { EntityType } from '../../enums/entityType.enum'
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
@@ -21,7 +21,10 @@ import { Router } from '@angular/router';
 })
 export class ExchangesComponent implements OnInit, OnDestroy {
   navPathList = ['home','exchanges'];
+  exchangeNavIcon: string = 'sendRequest';
   userId: string = jwtDecode<JwtPayload>(localStorage.getItem('token')).sub;
+  
+
 
   //Fields for sender
   senderSubjects: Subject[] = [];
