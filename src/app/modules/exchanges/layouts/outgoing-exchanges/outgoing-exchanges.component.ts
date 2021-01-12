@@ -4,14 +4,14 @@ import { ExchangeApiService } from 'src/app/data/api/exchange-api.service';
 import { ExchangeRequest } from 'src/app/data/entities/exchangeRequest';
 
 @Component({
-  selector: 'app-incoming-exchanges',
-  templateUrl: './incoming-exchanges.component.html',
-  styleUrls: ['./incoming-exchanges.component.scss']
+  selector: 'app-outgoing-exchanges',
+  templateUrl: './outgoing-exchanges.component.html',
+  styleUrls: ['./outgoing-exchanges.component.scss']
 })
-export class IncomingExchangesComponent implements OnInit, OnDestroy {
-  navPathList: string[] = ['home', 'exchanges', 'incoming'];
-  exchangeNavIcon: string = 'incomingRequests';
-  requestType: string = 'incoming';
+export class OutgoingExchangesComponent implements OnInit, OnDestroy {
+  navPathList: string[] = ['home', 'exchanges', 'outgoing'];
+  exchangeNavIcon: string = 'outgoingRequests';
+  requestType: string = 'outgoing';
   
   allRequests: ExchangeRequest[] = [];
   allRequestsChange: rxSubject<ExchangeRequest[]> = new rxSubject<ExchangeRequest[]>();
@@ -33,7 +33,7 @@ export class IncomingExchangesComponent implements OnInit, OnDestroy {
   }
 
   fetchRequests() {
-    this.subscription = this.exchangeApi.getRequestsToUser().subscribe(requests => {
+    this.subscription = this.exchangeApi.getRequestsFromUser().subscribe(requests => {
       this.allRequests = requests;
       this.allRequestsChange.next(this.allRequests);
     });
@@ -42,5 +42,4 @@ export class IncomingExchangesComponent implements OnInit, OnDestroy {
   setFilteredRequests(requests: ExchangeRequest[]) {
     this.filteredRequests = requests;
   }
-
 }

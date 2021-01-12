@@ -19,8 +19,13 @@ export class ExchangeApiService {
     return this.http.post(requestUrl, {fromUserId, fromLessonId, fromDate, toUserId, toLessonId, toDate});
   }
 
-  getRequestToUser() {
+  getRequestsToUser() {
     const requestUrl = `${this.globals.BASE_URL}/exchanges/requests/to`;
+    return this.http.get<ExchangeRequest[]>(requestUrl);
+  }
+
+  getRequestsFromUser() {
+    const requestUrl = `${this.globals.BASE_URL}/exchanges/requests/from`;
     return this.http.get<ExchangeRequest[]>(requestUrl);
   }
 

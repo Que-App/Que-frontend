@@ -6,6 +6,7 @@ import { AuthorisationComponent } from './core/components/authorisation/authoris
 import { HomeComponent } from './core/components/home/home.component';
 import { ExchangesComponent } from './modules/exchanges/layouts/exchanges/exchanges.component';
 import { IncomingExchangesComponent } from './modules/exchanges/layouts/incoming-exchanges/incoming-exchanges.component';
+import { OutgoingExchangesComponent } from './modules/exchanges/layouts/outgoing-exchanges/outgoing-exchanges.component';
 import { ScheduleComponent } from './modules/schedule/components/schedule/schedule.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
   { path: 'exchanges', component: ExchangesComponent, canActivate: [AuthGuardService] },
   { path: 'exchanges/incoming', component: IncomingExchangesComponent, canActivate: [AuthGuardService] },
+  { path: 'exchanges/outgoing', component: OutgoingExchangesComponent, canActivate: [AuthGuardService] },
   { path: 'schedule', component: ScheduleComponent, canActivate: [AuthGuardService] },
   { path: '**', redirectTo: '/home', pathMatch: 'full'},
 ];

@@ -1,0 +1,15 @@
+<div class="layout-organizer">
+    <app-navbar [pathList]='navPathList'></app-navbar>
+    <app-exchanges-navbar [activeIcon]="exchangeNavIcon"></app-exchanges-navbar>
+    <section>
+        <div class="filter-container">
+            <app-exchange-request-status-filter [requestsChange]="allRequestsChange" (filteredRequests)="setFilteredRequests($event)"></app-exchange-request-status-filter>
+        </div>
+        <div class="requests-container" *ngIf="filteredRequests.length > 0; else noRequestInfo">
+            <app-request-tail *ngFor="let request of filteredRequests" [request]="request" [requestType]="requestType"></app-request-tail>
+        </div>
+        <ng-template #noRequestInfo>
+            <h2 class="no-request-info">There is no request that matched selected filters.</h2>
+        </ng-template>
+    </section>
+</div>

@@ -10,11 +10,12 @@ import { RouterModule } from '@angular/router';
 import { ExchangeRequestStatusFilterComponent } from './components/exchange-request-status-filter/exchange-request-status-filter.component';
 import { RequestTailComponent } from './components/request-tail/request-tail.component';
 import { HourPrinterPipe } from 'src/app/shared/pipes/hour-printer.pipe';
+import { OutgoingExchangesComponent } from './layouts/outgoing-exchanges/outgoing-exchanges.component';
 
 
 
 @NgModule({
-  declarations: [ExchangesComponent, ExchangesNavbarComponent, IncomingExchangesComponent, ExchangeRequestStatusFilterComponent, RequestTailComponent, HourPrinterPipe],
+  declarations: [ExchangesComponent, ExchangesNavbarComponent, IncomingExchangesComponent, ExchangeRequestStatusFilterComponent, RequestTailComponent, HourPrinterPipe, OutgoingExchangesComponent],
   imports: [
     CommonModule,
     SharedModule,

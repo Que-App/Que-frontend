@@ -3,7 +3,10 @@
         <div class="container text-container">
             <div class="positioner">
                 <p class="description">{{person}}:</p>
-                <h4 class="value">{{ sender.username }}</h4>
+                <h4 class="value" *ngIf="person === 'Sender'; else printReceiver">{{ sender.username }}</h4>
+                <ng-template #printReceiver>
+                    <h4 class="value">{{ receiver.username }}</h4>
+                </ng-template>
             </div>
         </div>
         <div class="container" id="lesson-container">
