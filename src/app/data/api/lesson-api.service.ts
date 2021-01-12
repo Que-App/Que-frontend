@@ -22,12 +22,12 @@ export class LessonApiService {
   }
 
   getLesson(lessonId: string): Observable<Lesson> {
-    const requestUrl = `${this.globals.BASE_URL}/lesson/${lessonId}`;
+    const requestUrl = `${this.globals.BASE_URL}/lessons/${lessonId}`;
     return this.http.get<Lesson>(requestUrl);
   }
 
   getUsers(lessonId: string): Observable<User[]> {
-    const requestUrl = `${this.globals.BASE_URL}/lesson/${lessonId}/users`;
+    const requestUrl = `${this.globals.BASE_URL}/lessons/${lessonId}/users`;
     return this.http.get<User[]>(requestUrl);
   }
 }

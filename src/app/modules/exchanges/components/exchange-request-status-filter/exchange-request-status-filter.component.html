@@ -1,6 +1,8 @@
-<mat-form-field appearance="fill">
-    <mat-label>Filter by status</mat-label>
-    <mat-select [(value)]="selectedFilter" (selectionChange)="filterRequests()">
-        <mat-option *ngFor="let status of requestStatuses" value={{status}}>{{status}}</mat-option>
-    </mat-select>
-</mat-form-field>
+<section>
+    <mat-form-field appearance="fill">
+        <mat-label>Filter by status</mat-label>
+        <mat-select [(value)]="selectedFilter" (selectionChange)="filterRequests()">
+            <mat-option *ngFor="let status of requestStatuses" value={{status}}>{{status}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</section>

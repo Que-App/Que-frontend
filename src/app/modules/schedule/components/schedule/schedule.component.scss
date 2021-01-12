@@ -1,3 +1,5 @@
+@import "src/variables.scss";
+
 .layout-organizer {
     display: flex;
     flex-direction: column;
@@ -11,10 +13,11 @@ section {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     overflow: hidden;
+    margin-top: $navbarheight;
 }
 
 .container {
-    border: 1px solid #c51e1e;
+    border: 1px solid $maincolor;
     border-top: none;
     border-bottom: none;
     overflow: auto;

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subject as rxSubject, Subscription } from 'rxjs';
 import { ExchangeRequest, RequestStatus } from 'src/app/data/entities/exchangeRequest';
+import { OrderHandlerService } from '../../services/order-handler.service';
 
 @Component({
   selector: 'app-exchange-request-status-filter',
@@ -9,7 +10,7 @@ import { ExchangeRequest, RequestStatus } from 'src/app/data/entities/exchangeRe
 })
 export class ExchangeRequestStatusFilterComponent implements OnInit, OnDestroy {
   navPathList: string[] = ['home', 'exchanges', 'incoming'];
-  requestStatuses: string[] = [RequestStatus.ALL, RequestStatus.PENDING, RequestStatus.ACCEPTED, RequestStatus.DECLINED, RequestStatus.INVALID];
+  requestStatuses: string[] = ['All', RequestStatus.PENDING, RequestStatus.ACCEPTED, RequestStatus.DECLINED, RequestStatus.INVALID];
   
   selectedFilter: string = this.requestStatuses[0];
 
@@ -19,7 +20,9 @@ export class ExchangeRequestStatusFilterComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription
 
-  constructor() { }
+  constructor(
+    private orderHandler: OrderHandlerService
+  ) { }
 
   ngOnInit(): void {
     this.subscription = this.allRequestsChange.subscribe(requests => {
@@ -33,16 +36,16 @@ export class ExchangeRequestStatusFilterComponent implements OnInit, OnDestroy {
   }
 
   addFilteredRequests(requests: ExchangeRequest[]) {
-    this.filteredRequests.emit(requests);
+    this.filteredRequests.emit(this.orderHandler.setPendingFirst(requests));
   }
 
   filterRequests() {
     switch(this.selectedFilter) {
-      case RequestStatus.ALL:       this.addFilteredRequests(this.allRequests); break;
-      case RequestStatus.PENDING:   this.addFilteredRequests(this.allRequests.filter(request => request.status === RequestStatus.PENDING.toString().toUpperCase())); break;
-      case RequestStatus.ACCEPTED:  this.addFilteredRequests(this.allRequests.filter(request => request.status === RequestStatus.ACCEPTED.toString().toUpperCase())); break;
-      case RequestStatus.DECLINED:  this.addFilteredRequests(this.allRequests.filter(request => request.status === RequestStatus.DECLINED.toString().toUpperCase())); break;
-      case RequestStatus.INVALID:   this.addFilteredRequests(this.allRequests.filter(request => request.status === RequestStatus.INVALID.toString().toUpperCase())); break;
+      case 'All':       this.addFilteredRequests(this.allRequests); break;
+      case RequestStatus.PENDING:   this.addFilteredRequests(this.allRequests.filter(request => request.status === RequestStatus.PENDING.toString())); break;
+      case RequestStatus.ACCEPTED:  this.addFilteredRequests(this.allRequests.filter(request => request.status === RequestStatus.ACCEPTED.toString())); break;
+      case RequestStatus.DECLINED:  this.addFilteredRequests(this.allRequests.filter(request => request.status === RequestStatus.DECLINED.toString())); break;
+      case RequestStatus.INVALID:   this.addFilteredRequests(this.allRequests.filter(request => request.status === RequestStatus.INVALID.toString())); break;
     }
   }
 }

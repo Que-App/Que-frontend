@@ -12,7 +12,6 @@ import { EntityType } from '../../enums/entityType.enum'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
 import { DatePipe } from '@angular/common';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-exchanges',
@@ -80,7 +79,6 @@ export class ExchangesComponent implements OnInit, OnDestroy {
     private lessonApi: LessonApiService,
     private occurrenceApi: OccurrenceApiService,
     private exchangeApi: ExchangeApiService,
-    private router: Router,
     private datePipe: DatePipe
   ) { }
 
@@ -202,7 +200,7 @@ export class ExchangesComponent implements OnInit, OnDestroy {
       +(this.currentReceiverOccurrence.userId),
       +(this.currentReceiverLesson.id),
       this.datePipe.transform(this.currentReceiverOccurrence.date, 'yyyy-MM-dd')
-    ).subscribe()
+    ).subscribe(() => window.location.reload());
   }
 }
 

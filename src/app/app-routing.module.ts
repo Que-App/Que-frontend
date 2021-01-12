@@ -4,8 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService } from './auth/services/auth-guard.service';
 import { AuthorisationComponent } from './core/components/authorisation/authorisation.component';
 import { HomeComponent } from './core/components/home/home.component';
-import { ExchangesComponent } from './modules/exchanges/components/exchanges/exchanges.component';
-import { IncomingExchangesComponent } from './modules/exchanges/components/incoming-exchanges/incoming-exchanges.component';
+import { ExchangesComponent } from './modules/exchanges/layouts/exchanges/exchanges.component';
+import { IncomingExchangesComponent } from './modules/exchanges/layouts/incoming-exchanges/incoming-exchanges.component';
 import { ScheduleComponent } from './modules/schedule/components/schedule/schedule.component';
 
 const routes: Routes = [

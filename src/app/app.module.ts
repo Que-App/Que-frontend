@@ -18,7 +18,7 @@ import { JwtInterceptor } from './auth/services/jwt-interceptor.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +39,7 @@ import { JwtInterceptor } from './auth/services/jwt-interceptor.service';
       provide: HTTP_INTERCEPTORS, 
       useClass: JwtInterceptor, 
       multi: true 
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

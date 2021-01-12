@@ -11,14 +11,14 @@ import { ExchangeRequest, RequestStatus } from 'src/app/data/entities/exchangeRe
 export class IncomingExchangesComponent implements OnInit, OnDestroy {
   navPathList: string[] = ['home', 'exchanges', 'incoming'];
   exchangeNavIcon: string = 'incomingRequests';
-  options: string[] = [RequestStatus.ALL, RequestStatus.PENDING, RequestStatus.ACCEPTED, RequestStatus.DECLINED, RequestStatus.INVALID];
+  requestType: string = 'incoming';
   
   allRequests: ExchangeRequest[] = [];
   allRequestsChange: rxSubject<ExchangeRequest[]> = new rxSubject<ExchangeRequest[]>();
   
   filteredRequests: ExchangeRequest[] = [];
 
-  private subscription: Subscription
+  private subscription: Subscription;
 
   constructor(
     private exchangeApi: ExchangeApiService

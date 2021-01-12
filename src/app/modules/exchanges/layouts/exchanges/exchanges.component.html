@@ -2,12 +2,8 @@
     <app-navbar [pathList]='navPathList'></app-navbar>
     <app-exchanges-navbar [activeIcon]="exchangeNavIcon"></app-exchanges-navbar>
     <section>
-        <!-- <div class="buttons">
-            <a routerLink="/exchanges/incoming" routerLinkActive="active"><button mat-raised-button type="button" >Incoming exchanges</button></a>
-            <button mat-raised-button type="button">Outgoing exchanges</button>
-        </div> -->
         <div class="forms-container" >
-            <p>Your lesson</p>
+            <h4>Your lesson</h4>
             <form [formGroup]="formGroup" (ngSubmit)="sendExchangeRequest()">
                 <div class="form-part">
                     <mat-form-field appearance="fill">
@@ -23,7 +19,7 @@
                         <mat-label>Lesson</mat-label>
                         <mat-select formControlName='senderLesson'>
                             <mat-option *ngFor="let lesson of senderLessons" value="{{lesson.id}}" (click)='setCurrentSenderObject("lesson", lesson)'>
-                                {{lesson.nextDate | date: 'EEEE'}} - {{lesson.time}}
+                                {{lesson.nextDate | date: 'EEEE'}} - {{lesson.time | hourPrinter}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
@@ -32,14 +28,14 @@
                         <mat-label>Date</mat-label>
                         <mat-select formControlName='senderDate'>
                             <mat-option *ngFor="let occurrence of senderQueue" value="{{occurrence.username}}" (click)='setCurrentSenderObject("occurrence", occurrence)'>
-                                {{ occurrence.date | date: 'dd/MM/yyyy'}}
+                                {{ occurrence.date | date: 'dd.MM.yyyy'}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
                 
                 <mat-icon>keyboard_arrow_down</mat-icon>
-                <p>Receiver's lesson</p>
+                <h4>Receiver's lesson</h4>
 
                 <div class="form-part">
                     <mat-form-field appearance="fill">
@@ -55,7 +51,7 @@
                         <mat-label>Lesson</mat-label>
                         <mat-select formControlName="receiverLesson">
                             <mat-option *ngFor="let lesson of receiverLessons" value="{{lesson.id}}" (click)='setCurrentReceiverObject("lesson", lesson)'>
-                                {{lesson.nextDate | date: 'EEEE'}} - {{lesson.time}}
+                                {{lesson.nextDate | date: 'EEEE'}} - {{lesson.time | hourPrinter}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
@@ -64,7 +60,7 @@
                         <mat-label>User and Date</mat-label>
                         <mat-select formControlName="receiverDate">
                             <mat-option *ngFor="let occurrence of receiverQueue" value="{{occurrence.username}}" (click)='setCurrentReceiverObject("occurrence", occurrence)'>
-                                {{ occurrence.username }} - {{ occurrence.date | date: 'dd/MM/yyyy'}}
+                                {{ occurrence.username }} - {{ occurrence.date | date: 'dd.MM.yyyy'}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>

@@ -5,6 +5,10 @@ section {
     z-index: 1000;
     width: 50px;
     border-radius: 20px;
+    position: fixed;
+    left: 2%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 mat-icon {

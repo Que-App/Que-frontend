@@ -7,13 +7,12 @@ export interface ExchangeRequest {
     toLessonId: number,
     toDate: string,
     status: RequestStatus,
-    resolvmentDate: string
+    resolvementDate: string
 }
 
 export enum RequestStatus {
-    ALL = 'All',
-    PENDING = 'Pending',
-    ACCEPTED = 'Accepted',
-    DECLINED = 'Declined',
-    INVALID = 'Invalid'
+    PENDING = 'PENDING',
+    ACCEPTED = 'ACCEPTED',
+    DECLINED = 'DECLINED',
+    INVALID = 'INVALID'
 }

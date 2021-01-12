@@ -1,22 +1,66 @@
 section {
-    box-shadow: 0px 0px 42px 14px rgba(170, 167, 167, 0.3);
-    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.request-container {
+    box-shadow: 0px 0px 42px 14px rgba(170, 167, 167, 0.2);
     border-radius: 10px;
+    padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 90px;
+    height: 120px;
+    width: 90%;
 }
 
-.sender-font {
-    margin: 0;
+.action-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+}
+
+#accept-icon {
+    color: green;  
+}
+
+#decline-icon {
+    color: red;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
     justify-content: center;
+    align-items: center;
+}
+
+.positioner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: center;
+}
+
+.text-container {
+    display: flex;
+    align-items: flex-start;
+    align-self: center;
+}
+
+#lesson-container {
+    width: 180%;
 }
 
 .description {
@@ -27,6 +71,7 @@ section {
 
 .value {
     margin: 0;
-    align-self: center;
+    margin-top: 5px;
+    align-self: flex-start;
     justify-self: center;
 }

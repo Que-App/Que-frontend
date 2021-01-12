@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+@import "src/variables.scss";
 
 .main-container {
     display: flex;
@@ -8,7 +9,7 @@
 }
 
 .boxes-container {
-    margin: 40px auto;
+    margin: 40px+$navbarheight auto;
     display: grid;
     grid-template: 1fr 1fr / 1fr 1fr 1fr;
     height: 80%;
@@ -79,7 +80,7 @@
 }
 
 .user {
-    color: #c51e1e;
+    color: $maincolor;
 }
 
 p {

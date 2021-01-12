@@ -1,27 +1,62 @@
 <section>
-    <div class="sender-container container">
-        <p class="description">Sender:</p>
-        <h4 class="value">Jan U</h4>
+    <div class="request-container">
+        <div class="container text-container">
+            <div class="positioner">
+                <p class="description">{{person}}:</p>
+                <h4 class="value">{{ sender.username }}</h4>
+            </div>
+        </div>
+        <div class="container" id="lesson-container">
+            <div class="container text-container">
+                <p class="description">From:</p>
+                <div *ngIf="fromLesson && fromSubject">
+                    <h4 class="value" *ngIf="requestType === 'incoming'; else outgoingFrom">
+                        {{ fromSubject.name }}, {{ request.fromDate | date: "dd.MM.yyyy"}} - {{ fromLesson.time | hourPrinter }} 
+                    </h4>
+                    <ng-template #outgoingFrom>
+                        <h4 class="value">
+                            {{ toSubject.name }}, {{ request.toDate | date: "dd.MM.yyyy"}} - {{ toLesson.time | hourPrinter }} 
+                        </h4>
+                    </ng-template>
+                </div>
+            </div>
+            <div class="container text-container">
+                <p class="description">To:</p>
+                <div *ngIf="toLesson && toSubject">
+                    <h4 class="value" *ngIf="requestType === 'incoming'; else outgoingTo">
+                        {{ toSubject.name }}, {{ request.toDate | date: "dd.MM.yyyy"}} - {{ toLesson.time | hourPrinter }} 
+                    </h4>
+                    <ng-template #outgoingTo>
+                        <h4 class="value">
+                            {{ fromSubject.name }}, {{ request.fromDate | date: "dd.MM.yyyy"}} - {{ fromLesson.time | hourPrinter }} 
+                        </h4>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="container text-container">
+                <p class="description">Resolvement date:</p>
+                <div *ngIf="request.resolvementDate; else noAction">
+                    <h4 class="value">{{ request.resolvementDate | date: "dd.MM.yyyy"}}</h4>
+                </div>
+                <ng-template #noAction>
+                    <h4 class="value">No action yet</h4>
+                </ng-template>
+            </div>
+            <div class="container text-container">
+                <p class="description">Status:</p>
+                <h4 class="value" [style.color]="getStatusColor(request.status)">{{ request.status }}</h4>
+            </div>
+        </div>
+        <div class="action-container" *ngIf="requestType === 'incoming' && request.status === 'PENDING'">
+            <mat-icon id="accept-icon" class="icon" fontSet="material-icons-outlined" matTooltip="Accept request" [matTooltipPosition]="position" (click)="acceptRequest(request.id)">
+                check_circle
+            </mat-icon>
+            <mat-icon id="decline-icon" class="icon" fontSet="material-icons-outlined" matTooltip="Decline request" [matTooltipPosition]="position" (click)="declineRequest(request.id)">
+                cancel
+            </mat-icon>
+        </div>
     </div>
-    <div class="lesson-details-container container">
-        <div class="from-lesson-container container">
-            <p class="description">From:</p>
-            <h4 class="value">Sieci, Monday 08:00<br>{{ request.fromDate }}</h4>
-        </div>
-        <div class="to-lesson-container container">
-            <p class="description">To:</p>
-            <h4 class="value">{{ request.toLessonId }}, {{ request.toDate }}</h4>
-        </div>
-    </div>
-    <div class="request-details-container container">
-        <div class="date-container container">
-            <p class="description">Date:</p>
-            <h4 class="value">{{ request.resolvmentDate }}</h4>
-        </div>
-        <div class="to-lesson-container container">
-            <p class="description">Status:</p>
-            <h4 class="value">{{ request.status }}</h4>
-        </div>
-    </div>
-        
+    
 </section>
