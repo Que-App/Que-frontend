@@ -12,26 +12,26 @@
         <div class="container" id="lesson-container">
             <div class="container text-container">
                 <p class="description">From:</p>
-                <div *ngIf="fromLesson && fromSubject">
+                <div *ngIf="toLesson && toSubject">
                     <h4 class="value" *ngIf="requestType === 'incoming'; else outgoingFrom">
-                        {{ fromSubject.name }}, {{ request.fromDate | date: "dd.MM.yyyy"}} - {{ fromLesson.time | hourPrinter }} 
+                        {{ toSubject.name }}, {{ request.toDate | date: "dd.MM.yyyy"}} - {{ toLesson.time | hourPrinter }} 
                     </h4>
                     <ng-template #outgoingFrom>
-                        <h4 class="value">
-                            {{ toSubject.name }}, {{ request.toDate | date: "dd.MM.yyyy"}} - {{ toLesson.time | hourPrinter }} 
+                        <h4 class="value" *ngIf="fromLesson && fromSubject">
+                            {{ fromSubject.name }}, {{ request.fromDate | date: "dd.MM.yyyy"}} - {{ fromLesson.time | hourPrinter }} 
                         </h4>
                     </ng-template>
                 </div>
             </div>
             <div class="container text-container">
                 <p class="description">To:</p>
-                <div *ngIf="toLesson && toSubject">
+                <div *ngIf="fromLesson && fromSubject">
                     <h4 class="value" *ngIf="requestType === 'incoming'; else outgoingTo">
-                        {{ toSubject.name }}, {{ request.toDate | date: "dd.MM.yyyy"}} - {{ toLesson.time | hourPrinter }} 
+                        {{ fromSubject.name }}, {{ request.fromDate | date: "dd.MM.yyyy"}} - {{ fromLesson.time | hourPrinter }} 
                     </h4>
                     <ng-template #outgoingTo>
-                        <h4 class="value">
-                            {{ fromSubject.name }}, {{ request.fromDate | date: "dd.MM.yyyy"}} - {{ fromLesson.time | hourPrinter }} 
+                        <h4 class="value" *ngIf="toLesson && toSubject">
+                            {{ toSubject.name }}, {{ request.toDate | date: "dd.MM.yyyy"}} - {{ toLesson.time | hourPrinter }} 
                         </h4>
                     </ng-template>
                 </div>

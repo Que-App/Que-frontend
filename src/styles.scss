@@ -11,7 +11,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     text-align: center;
     justify-content: center;
     
-    &:nth-of-type(even) {
-        background-color: yellow;
-    }
+}
+
+.basic-snackbar {
+    color: white;
+}
+
+.error-snackbar {
+    color: white;
+    background-color: #C13745;
 }

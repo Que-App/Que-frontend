@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -14,6 +14,7 @@ import { ScheduleModule } from './modules/schedule/schedule.module';
 import { DataModule } from '../app/data/data.module';
 import { Globals } from './globals';
 import { JwtInterceptor } from './auth/services/jwt-interceptor.service';
+import { ErrorService } from './shared/services/error.service';
 
 
 @NgModule({
@@ -40,6 +41,10 @@ import { JwtInterceptor } from './auth/services/jwt-interceptor.service';
       useClass: JwtInterceptor, 
       multi: true 
     },
+    {
+      provide: ErrorHandler,
+      useClass: ErrorService
+    }
   ],
   bootstrap: [AppComponent]
 })
