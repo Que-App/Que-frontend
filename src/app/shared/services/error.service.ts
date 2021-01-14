@@ -13,11 +13,13 @@ export class ErrorService implements ErrorHandler {
 
   handleError(error: any) {
     if (Error instanceof HttpErrorResponse) {
-      this.snackBar.openErrorSnackBar(error.error.message);
+      this.snackBar.openErrorSnackBar('Sorry, something went wrong.');
+      console.error(error);
     } else {
-      this.snackBar.openErrorSnackBar(error.message);
-      console.log(error.message);
+      if (error.status != 401) {
+        this.snackBar.openErrorSnackBar(error.error.message);
+        console.error(error);
+      }
     }
-
   }
 }
