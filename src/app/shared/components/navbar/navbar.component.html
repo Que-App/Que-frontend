@@ -1,4 +1,24 @@
-<section class='navbar-container'>
+<section>
+    <div class="titlebar">
+        <div class="titlebar-item container">
+            <div class="color-box"> </div>
+        </div>
+        <p class="titlebar-item title">Que</p>
+        <div class="titlebar-item icons-container">
+            <mat-icon class="icon" fontSet="material-icons-outlined">meeting_room</mat-icon>
+            <mat-icon class="icon" fontSet="material-icons-outlined">settings</mat-icon>
+        </div>
+    </div>
+    <div class="navbar">
+        <div class="navbar-tail" *ngFor='let tail of list'>
+            <mat-icon fontSet="material-icons-outlined">{{ tail.icon }}</mat-icon>
+            <p>{{ tail.text }}</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- <section class='navbar-container'>
     <div class='path-container' >
         <div class='path-element' *ngFor='let path of pathList'>
             <a class='path' (click)='routeTo(path)'>{{ path.toUpperCase() }}</a>
@@ -11,4 +31,4 @@
         <mat-icon class="icon" (click)="logOut()">meeting_room</mat-icon>
         <mat-icon class="icon" id="settings" (click)="routeTo('settings')">settings</mat-icon>
     </div>
-</section>
+</section> -->
