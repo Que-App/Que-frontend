@@ -12,6 +12,7 @@ import { EntityType } from '../../enums/entityType.enum'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
 import { DatePipe } from '@angular/common';
+import { ActiveNavElement } from 'src/app/shared/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-exchanges',
@@ -19,7 +20,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./exchanges.component.scss']
 })
 export class ExchangesComponent implements OnInit, OnDestroy {
-  navPathList = ['home','exchanges'];
+  activeNavElement: ActiveNavElement = ActiveNavElement.EXCHANGE_SEND;
   exchangeNavIcon: string = 'sendRequest';
   userId: string = jwtDecode<JwtPayload>(localStorage.getItem('token')).sub;
   

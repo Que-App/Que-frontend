@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { ActiveNavElement } from 'src/app/shared/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,10 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  appTitle = ['Que']
+  activeNavElement: ActiveNavElement = ActiveNavElement.HOME;
   currentDate: string;
   currentHour: string;
+
 
   constructor(
     private router: Router,

@@ -79,11 +79,12 @@ section {
     text-align: center;
     background-color: rgb(26,47,51);
     white-space: pre-line;
+    cursor: pointer;
     
     &:hover {
-        background-color: rgb(16, 30, 32);
+        background-color: rgb(20,36,39);
         color: white;
-        cursor: pointer;
+        
     }
 
     p {
@@ -91,73 +92,8 @@ section {
     }
 }
 
-
-
-
-
-
-
-
-// .navbar-container {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     background-color: $maincolor;
-//     margin: 0;
-//     box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
-//     z-index: 1000;
-//     font-family: 'Poppins', sans-serif;
-//     position: fixed;
-//     top: 0;
-//     width: 100%;
-// }
-
-// .path-container {
-//     display: flex;
-//     flex-direction: row;
-//     align-items: center;
-//     padding: 25px;
-//     margin-left: 20px;
-// }
-
-// .path-element {
-//     display: flex;
-//     flex-direction: row;
-//     font-weight: bold;
-//     color: white;
-//     align-items: center;
-// }
-
-// .path {
-//     cursor: pointer;
-// }
-
-// .arrow-icon {
-//     font-size: 1em;
-//     height: 1em;
-//     align-self: center;
-//     text-align: center;
-//     margin: 0 3px;
-// }
-
-// .icons-container {
-//     display: flex;
-//     width: 100px;
-//     margin-right: 2.5%;
-//     justify-content: space-between;
-// }
-
-// .icon {
-//     font-size: 1.5em;
-//     cursor: pointer;
-//     margin: 0;
-//     color: white;
-// }
-
-// #settings {
-//     transition: transform, 1s;
-
-//     &:hover {
-//         transform: rotate(180deg);
-//     }
-// }
+.active-navbar-tail {
+    background-color: rgb(16, 30, 32);
+    color: white;
+    box-shadow: inset 0px -5px 0px 0px rgba(114,39,42,1);
+}

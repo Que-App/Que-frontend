@@ -67,8 +67,8 @@ export class RequestTailComponent implements OnInit {
 
   getStatusColor(status: string) {
     switch(status) {
-      case RequestStatus.ACCEPTED: return 'green'; 
-      case RequestStatus.DECLINED: return 'red'; 
+      case RequestStatus.ACCEPTED: return 'darkgreen'; 
+      case RequestStatus.DECLINED: return '#C13745'; 
       case RequestStatus.PENDING: return 'grey'; 
       case RequestStatus.INVALID: return 'orange'; 
     }

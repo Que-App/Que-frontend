@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject as rxSubject, Subscription } from 'rxjs';
 import { ExchangeApiService } from 'src/app/data/api/exchange-api.service';
 import { ExchangeRequest } from 'src/app/data/entities/exchangeRequest';
+import { ActiveNavElement } from 'src/app/shared/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-incoming-exchanges',
@@ -9,7 +10,7 @@ import { ExchangeRequest } from 'src/app/data/entities/exchangeRequest';
   styleUrls: ['./incoming-exchanges.component.scss']
 })
 export class IncomingExchangesComponent implements OnInit, OnDestroy {
-  navPathList: string[] = ['home', 'exchanges', 'incoming'];
+  activeNavElement: ActiveNavElement = ActiveNavElement.EXCHANGE_INCOMING;
   exchangeNavIcon: string = 'incomingRequests';
   requestType: string = 'incoming';
   

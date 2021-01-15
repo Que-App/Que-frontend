@@ -9,6 +9,7 @@ import { LessonOccurrence } from 'src/app/data/entities/lessonOccurrence';
 import { Subject as rxSubject, Subscription} from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 import { EntityType } from '../../enums/entityType.enum'
+import { ActiveNavElement } from 'src/app/shared/components/navbar/navbar.component';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { EntityType } from '../../enums/entityType.enum'
   styleUrls: ['./schedule.component.scss']
 })
 export class ScheduleComponent implements OnInit, OnDestroy {
-  navPathList = ['home','schedule'];
+  activeNavElement: ActiveNavElement = ActiveNavElement.SCHEDULE;
   
   subjects: Subject[] = [];
   private subjectsChange: rxSubject<Subject[]> = new rxSubject<Subject[]>();
