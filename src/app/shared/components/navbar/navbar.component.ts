@@ -12,6 +12,17 @@ import { NavbarPathConverterPipe } from '../../pipes/navbar-path-converter.pipe'
 export class NavbarComponent implements OnInit {
   @Input('pathList') pathList: string[] = ['home'];
 
+  list: xd[] = [
+    { icon: 'home', text: 'HOME'},
+    { icon: 'event', text: 'SCHEDULER'},
+    { icon: 'swap_horiz', text: 'EXCHANGE' + '\n '+ 'REQUEST'},
+    { icon: 'save_alt', text: 'INCOMING' + '\n '+ 'REQUESTS'},
+    { icon: 'publish', text: 'OUTGOING' + '\n '+ 'REQUESTS'},
+    { icon: 'accessibility_new', text: 'YOUR' + '\n '+ 'QUEUE'},
+    { icon: 'description', text: 'NOTES'},
+
+  ]
+
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -28,4 +39,10 @@ export class NavbarComponent implements OnInit {
     this.authenticationService.logOut();
   }
 
+
+}
+
+export interface xd {
+  icon: string;
+  text: string;
 }

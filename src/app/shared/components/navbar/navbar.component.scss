@@ -1,65 +1,163 @@
 @import "src/variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
 
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: $maincolor;
-    margin: 0;
-    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
-    z-index: 1000;
-    font-family: 'Poppins', sans-serif;
+
+section {
     position: fixed;
     top: 0;
     width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
 }
 
-.path-container {
+.titlebar {
+    background-color: white;
+    height: 50px;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    padding: 25px;
-    margin-left: 20px;
-}
-
-.path-element {
-    display: flex;
-    flex-direction: row;
-    font-weight: bold;
-    color: white;
+    justify-content: space-between;
     align-items: center;
 }
 
-.path {
-    cursor: pointer;
+.titlebar-item {
+    flex-basis: 100%;
+    height: 100%;
 }
 
-.arrow-icon {
-    font-size: 1em;
-    height: 1em;
-    align-self: center;
+.color-box {
+    height: 100%;
+    width: 14.29% * 3;
+    background-color: $maincolor;
+}
+
+.title {
+    font-family: 'Lobster Two', cursive;
+    font-size: 2.3em;
+    margin: 0;
     text-align: center;
-    margin: 0 3px;
 }
 
 .icons-container {
     display: flex;
-    width: 100px;
-    margin-right: 2.5%;
-    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .icon {
-    font-size: 1.5em;
     cursor: pointer;
-    margin: 0;
-    color: white;
-}
 
-#settings {
-    transition: transform, 1s;
+    &:last-child {
+        margin-right: 14.29%;
+    }
+
+    &:first-child {
+        margin-right: 20px;
+    }
 
     &:hover {
-        transform: rotate(180deg);
+        font-family: 'Material Icons';
     }
 }
+
+.navbar {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-tail {
+    color: #99ABA0;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(26,47,51);
+    white-space: pre-line;
+    
+    &:hover {
+        background-color: rgb(16, 30, 32);
+        color: white;
+        cursor: pointer;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+
+
+
+
+
+
+
+// .navbar-container {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     background-color: $maincolor;
+//     margin: 0;
+//     box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+//     z-index: 1000;
+//     font-family: 'Poppins', sans-serif;
+//     position: fixed;
+//     top: 0;
+//     width: 100%;
+// }
+
+// .path-container {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     padding: 25px;
+//     margin-left: 20px;
+// }
+
+// .path-element {
+//     display: flex;
+//     flex-direction: row;
+//     font-weight: bold;
+//     color: white;
+//     align-items: center;
+// }
+
+// .path {
+//     cursor: pointer;
+// }
+
+// .arrow-icon {
+//     font-size: 1em;
+//     height: 1em;
+//     align-self: center;
+//     text-align: center;
+//     margin: 0 3px;
+// }
+
+// .icons-container {
+//     display: flex;
+//     width: 100px;
+//     margin-right: 2.5%;
+//     justify-content: space-between;
+// }
+
+// .icon {
+//     font-size: 1.5em;
+//     cursor: pointer;
+//     margin: 0;
+//     color: white;
+// }
+
+// #settings {
+//     transition: transform, 1s;
+
+//     &:hover {
+//         transform: rotate(180deg);
+//     }
+// }
