@@ -3,45 +3,41 @@
         <div class="container text-container">
             <div class="positioner">
                 <p class="description">{{person}}:</p>
-                <h4 class="value" *ngIf="person === 'Sender'; else printReceiver">{{ sender.username }}</h4>
+                <h4 class="value" *ngIf="person === 'Sender'; else printReceiver">{{ request.fromUsername }}</h4>
                 <ng-template #printReceiver>
-                    <h4 class="value">{{ receiver.username }}</h4>
+                    <h4 class="value">{{ request.toUsername }}</h4>
                 </ng-template>
             </div>
         </div>
         <div class="container" id="lesson-container">
             <div class="container text-container">
                 <p class="description">From:</p>
-                <div *ngIf="toLesson && toSubject">
-                    <h4 class="value" *ngIf="requestType === 'incoming'; else outgoingFrom">
-                        {{ toSubject.name }}, {{ request.toDate | date: "dd.MM.yyyy"}} - {{ toLesson.time | hourPrinter }} 
+                <h4 class="value" *ngIf="requestType === 'incoming'; else outgoingFrom">
+                    {{ request.toSubjectName }}, {{ request.toDate | date: "dd.MM.yyyy"}} - {{ request.toTime | hourPrinter }} 
+                </h4>
+                <ng-template #outgoingFrom>
+                    <h4 class="value">
+                        {{ request.fromSubjectName }}, {{ request.fromDate | date: "dd.MM.yyyy"}} - {{ request.fromTime | hourPrinter }} 
                     </h4>
-                    <ng-template #outgoingFrom>
-                        <h4 class="value" *ngIf="fromLesson && fromSubject">
-                            {{ fromSubject.name }}, {{ request.fromDate | date: "dd.MM.yyyy"}} - {{ fromLesson.time | hourPrinter }} 
-                        </h4>
-                    </ng-template>
-                </div>
+                </ng-template>
             </div>
             <div class="container text-container">
                 <p class="description">To:</p>
-                <div *ngIf="fromLesson && fromSubject">
-                    <h4 class="value" *ngIf="requestType === 'incoming'; else outgoingTo">
-                        {{ fromSubject.name }}, {{ request.fromDate | date: "dd.MM.yyyy"}} - {{ fromLesson.time | hourPrinter }} 
+                <h4 class="value" *ngIf="requestType === 'incoming'; else outgoingTo">
+                    {{ request.fromSubjectName }}, {{ request.fromDate | date: "dd.MM.yyyy"}} - {{ request.fromTime | hourPrinter }} 
+                </h4>
+                <ng-template #outgoingTo>
+                    <h4 class="value">
+                        {{ request.toSubjectName }}, {{ request.toDate | date: "dd.MM.yyyy"}} - {{ request.toTime | hourPrinter }} 
                     </h4>
-                    <ng-template #outgoingTo>
-                        <h4 class="value" *ngIf="toLesson && toSubject">
-                            {{ toSubject.name }}, {{ request.toDate | date: "dd.MM.yyyy"}} - {{ toLesson.time | hourPrinter }} 
-                        </h4>
-                    </ng-template>
-                </div>
+                </ng-template>
             </div>
         </div>
         <div class="container">
             <div class="container text-container">
                 <p class="description">Resolvement date:</p>
-                <div *ngIf="request.resolvementDate; else noAction">
-                    <h4 class="value">{{ request.resolvementDate | date: "dd.MM.yyyy"}}</h4>
+                <div *ngIf="request.resolvementTime; else noAction">
+                    <h4 class="value">{{ request.resolvementTime | date: "dd.MM.yyyy"}}</h4>
                 </div>
                 <ng-template #noAction>
                     <h4 class="value">No action yet</h4>

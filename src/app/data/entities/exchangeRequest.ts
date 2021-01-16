@@ -2,12 +2,20 @@ export interface ExchangeRequest {
     id: number,
     fromUserId: number,
     fromLessonId: number,
-    fromDate: string,
+    fromIndex: string,
     toUserId: number,
     toLessonId: number,
-    toDate: string,
+    toIndex: string,
     status: RequestStatus,
-    resolvementDate: string
+    resolvementTime: number,
+    fromUsername: string;
+    toUsername: string;
+    fromDate: string;
+    toDate: string;
+    fromTime: string;
+    toTime: string;
+    fromSubjectName: string;
+    toSubjectName: string;
 }
 
 export enum RequestStatus {

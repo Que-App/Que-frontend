@@ -9,7 +9,7 @@ export class OrderHandlerService {
   constructor() { }
 
   orderByResolvmentDate(requests: ExchangeRequest[]) {
-    return requests.sort((a,b) => new Date(b.resolvementDate).getTime() - new Date(a.resolvementDate).getTime());
+    return requests.sort((a,b) => new Date(b.resolvementTime).getTime() - new Date(a.resolvementTime).getTime());
   }
 
   setPendingFirst(requests: ExchangeRequest[]) {

@@ -197,10 +197,10 @@ export class ExchangesComponent implements OnInit, OnDestroy {
     this.exchangeApi.submitRequest(
       +(this.userId),
       +(this.currentSenderLesson.id),
-      this.datePipe.transform(this.currentSenderOccurrence.date, 'yyyy-MM-dd'),
+      this.currentSenderOccurrence.lessonIndex,
       +(this.currentReceiverOccurrence.userId),
       +(this.currentReceiverLesson.id),
-      this.datePipe.transform(this.currentReceiverOccurrence.date, 'yyyy-MM-dd')
+      this.currentReceiverOccurrence.lessonIndex,
     ).subscribe(() => window.location.reload());
   }
 }

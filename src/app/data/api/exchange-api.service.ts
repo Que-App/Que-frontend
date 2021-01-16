@@ -14,9 +14,9 @@ export class ExchangeApiService {
     private globals: Globals,
   ) { }
 
-  submitRequest(fromUserId: number, fromLessonId: number, fromDate: string, toUserId: number, toLessonId: number, toDate: string) {
+  submitRequest(fromUserId: number, fromLessonId: number, fromIndex: number, toUserId: number, toLessonId: number, toIndex: number) {
     const requestUrl = `${this.globals.BASE_URL}/exchanges/requests/submit`;
-    return this.http.post(requestUrl, {fromUserId, fromLessonId, fromDate, toUserId, toLessonId, toDate});
+    return this.http.post(requestUrl, {fromUserId, fromLessonId, fromIndex, toUserId, toLessonId, toIndex});
   }
 
   getRequestsToUser() {

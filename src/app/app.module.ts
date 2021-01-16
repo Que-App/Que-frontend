@@ -15,6 +15,7 @@ import { DataModule } from '../app/data/data.module';
 import { Globals } from './globals';
 import { JwtInterceptor } from './auth/services/jwt-interceptor.service';
 import { ErrorService } from './shared/services/error.service';
+import { SettingsModule } from './modules/settings/settings.module'
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ErrorService } from './shared/services/error.service';
     SharedModule,
     ExchangesModule,
     ScheduleModule,
-    DataModule
+    DataModule,
+    SettingsModule
   ],
   providers: [
     DatePipe,

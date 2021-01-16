@@ -1,0 +1,42 @@
+@import 'src/variables.scss';
+
+section {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    width: 49px;
+    border-radius: 20px;
+    position: fixed;
+    left: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+mat-icon {
+    font-size: 37px;
+    height: 37px;
+    width: 37px;
+    padding: 6px;
+
+    &:hover {
+        background-color: rgba(170, 167, 167, 0.4);
+        cursor: pointer;
+    }
+
+    &:first-child {
+        padding-top: 15px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    &:last-child {
+        padding-bottom: 15px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+}
+
+.active {
+    color: $maincolor;
+}

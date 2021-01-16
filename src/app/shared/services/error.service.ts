@@ -12,6 +12,7 @@ export class ErrorService implements ErrorHandler {
   ) { }
 
   handleError(error: any) {
+    console.error(error);
     if (Error instanceof HttpErrorResponse) {
       this.snackBar.openErrorSnackBar('Sorry, something went wrong.');
       console.error(error);

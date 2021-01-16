@@ -1,0 +1,6 @@
+<section>
+    <mat-icon *ngFor="let element of navList" [class.active]="element.verifier === activeIcon" 
+        fontSet="material-icons-outlined" matTooltip={{element.description}}  [matTooltipPosition]="position" (click)="routeTo(element.link)">
+        {{ element.icon }}
+    </mat-icon>
+</section>
