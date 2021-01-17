@@ -27,6 +27,6 @@ export class UserApiService {
 
   changePassword(oldPassword: string, newPassword: string) {
     const requestUrl = `${this.globals.BASE_URL}/account/changepass`;
-    return this.http.post(requestUrl, {oldPassword, newPassword});
+    return this.http.post(requestUrl, {oldPassword, newPassword}, {observe: 'response'});
   }
 }

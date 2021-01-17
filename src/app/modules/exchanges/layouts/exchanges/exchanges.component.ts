@@ -9,10 +9,11 @@ import { Lesson } from 'src/app/data/entities/lesson';
 import { LessonOccurrence } from 'src/app/data/entities/lessonOccurrence';
 import { Subject } from 'src/app/data/entities/subject';
 import { EntityType } from '../../enums/entityType.enum'
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
 import { DatePipe } from '@angular/common';
 import { ActiveNavElement } from 'src/app/shared/components/navbar/navbar.component';
+import { SnackBarHandlerService } from 'src/app/shared/services/snack-bar-handler.service';
 
 @Component({
   selector: 'app-exchanges',
@@ -80,7 +81,7 @@ export class ExchangesComponent implements OnInit, OnDestroy {
     private lessonApi: LessonApiService,
     private occurrenceApi: OccurrenceApiService,
     private exchangeApi: ExchangeApiService,
-    private datePipe: DatePipe
+    private snackBar: SnackBarHandlerService
   ) { }
 
   ngOnInit(): void {
@@ -193,7 +194,7 @@ export class ExchangesComponent implements OnInit, OnDestroy {
       (this.formGroup.get('receiverDate') as FormControl).reset(''))
   }
 
-  sendExchangeRequest() {
+  sendExchangeRequest(formDirective: FormGroupDirective) {
     this.exchangeApi.submitRequest(
       +(this.userId),
       +(this.currentSenderLesson.id),
@@ -201,7 +202,13 @@ export class ExchangesComponent implements OnInit, OnDestroy {
       +(this.currentReceiverOccurrence.userId),
       +(this.currentReceiverLesson.id),
       this.currentReceiverOccurrence.lessonIndex,
-    ).subscribe(() => window.location.reload());
+    ).subscribe(response => {
+      if (response.status === 200) {
+        this.snackBar.openBasicSnackBar('Exchange request has been sent successfully.');
+        formDirective.resetForm();
+        this.formGroup.reset();
+      } else this.snackBar.openErrorSnackBar('Something went wrong.')
+    });
   }
 }
 

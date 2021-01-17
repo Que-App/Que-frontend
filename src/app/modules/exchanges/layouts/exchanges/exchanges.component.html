@@ -3,7 +3,7 @@
     <section>
         <div class="forms-container" >
             <h4>Your lesson</h4>
-            <form [formGroup]="formGroup" (ngSubmit)="sendExchangeRequest()">
+            <form [formGroup]="formGroup" #formDirective="ngForm" (ngSubmit)="sendExchangeRequest(formDirective)">
                 <div class="form-part">
                     <mat-form-field appearance="fill">
                         <mat-label>Subject</mat-label>

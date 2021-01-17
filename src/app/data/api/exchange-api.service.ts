@@ -16,7 +16,7 @@ export class ExchangeApiService {
 
   submitRequest(fromUserId: number, fromLessonId: number, fromIndex: number, toUserId: number, toLessonId: number, toIndex: number) {
     const requestUrl = `${this.globals.BASE_URL}/exchanges/requests/submit`;
-    return this.http.post(requestUrl, {fromUserId, fromLessonId, fromIndex, toUserId, toLessonId, toIndex});
+    return this.http.post(requestUrl, {fromUserId, fromLessonId, fromIndex, toUserId, toLessonId, toIndex}, {observe: 'response'});
   }
 
   getRequestsToUser() {
