@@ -1,0 +1,18 @@
+<section>
+    <div class="date-container">
+        <p class="date">{{ data.occurrence.date | date: "dd.MM" }}</p>
+
+    </div>
+    <div class="info-container">
+        <div class="value-container">
+            <p class="description">Subject: </p>
+            <p class="value">{{ data.subject.name }}</p>
+        </div>
+        <div class="value-container">
+            <p class="description">Hour: </p>
+            <p class="value">{{ data.lesson.time | hourPrinter }}</p>
+        </div>
+        <p class="number">{{ data.num }}</p>
+    </div>
+    <p>{{data.occurrence.date}}</p>
+</section>

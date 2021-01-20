@@ -7,6 +7,7 @@ import { HomeComponent } from './core/components/home/home.component';
 import { ExchangesComponent } from './modules/exchanges/layouts/exchanges/exchanges.component';
 import { IncomingExchangesComponent } from './modules/exchanges/layouts/incoming-exchanges/incoming-exchanges.component';
 import { OutgoingExchangesComponent } from './modules/exchanges/layouts/outgoing-exchanges/outgoing-exchanges.component';
+import { QueueComponent } from './modules/queues/layouts/queue/queue.component';
 import { ScheduleComponent } from './modules/schedule/components/schedule/schedule.component';
 import { ChangePasswordComponent } from './modules/settings/layouts/change-password/change-password.component';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'schedule', component: ScheduleComponent, canActivate: [AuthGuardService] },
   { path: 'settings/change-password', component: ChangePasswordComponent, canActivate: [AuthGuardService] },
   { path: 'settings', redirectTo: '/settings/change-password', pathMatch: 'full'},
+  { path: 'queue', component: QueueComponent, canActivate: [AuthGuardService] },
   { path: '**', redirectTo: '/home', pathMatch: 'full'},
 ];
 

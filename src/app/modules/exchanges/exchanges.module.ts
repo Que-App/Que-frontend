@@ -9,19 +9,20 @@ import { IncomingExchangesComponent } from './layouts/incoming-exchanges/incomin
 import { RouterModule } from '@angular/router';
 import { ExchangeRequestStatusFilterComponent } from './components/exchange-request-status-filter/exchange-request-status-filter.component';
 import { RequestTailComponent } from './components/request-tail/request-tail.component';
-import { HourPrinterPipe } from 'src/app/shared/pipes/hour-printer.pipe';
 import { OutgoingExchangesComponent } from './layouts/outgoing-exchanges/outgoing-exchanges.component';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 
 @NgModule({
-  declarations: [ExchangesComponent, ExchangesNavbarComponent, IncomingExchangesComponent, ExchangeRequestStatusFilterComponent, RequestTailComponent, HourPrinterPipe, OutgoingExchangesComponent],
+  declarations: [ExchangesComponent, ExchangesNavbarComponent, IncomingExchangesComponent, ExchangeRequestStatusFilterComponent, RequestTailComponent, OutgoingExchangesComponent],
   imports: [
     CommonModule,
     SharedModule,
     MaterialModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    PipesModule
   ],
   providers: [
     FormBuilder,

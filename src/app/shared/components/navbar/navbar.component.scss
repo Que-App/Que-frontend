@@ -9,6 +9,7 @@ section {
     height: 150px;
     display: flex;
     flex-direction: column;
+    z-index: 1000;
 }
 
 .titlebar {
