@@ -16,10 +16,7 @@ section {
     background-color: white;
     height: 50px;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
 }
 
 .titlebar-item {
@@ -27,17 +24,14 @@ section {
     height: 100%;
 }
 
-.color-box {
-    height: 100%;
-    width: 14.29% * 3;
-    background-color: $maincolor;
-}
-
 .title {
     font-family: 'Lobster Two', cursive;
     font-size: 2.3em;
     margin: 0;
     text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .icons-container {
@@ -45,14 +39,12 @@ section {
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    right: 1%;
+    position: absolute;
 }
 
 .icon {
     cursor: pointer;
-
-    &:last-child {
-        margin-right: 14.29%;
-    }
 
     &:first-child {
         margin-right: 20px;
@@ -62,6 +54,16 @@ section {
         font-family: 'Material Icons';
     }
 }
+
+#settings-icon {
+    transition: transform 1s;
+
+    &:hover {
+        transform: rotate(180deg);
+    }
+}
+
+
 
 .navbar {
     height: 100px;
