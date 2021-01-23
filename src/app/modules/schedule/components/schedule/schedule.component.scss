@@ -26,3 +26,9 @@ section {
 .occurrence-tile:hover {
     background-color: rgb(245, 245, 245);
 }
+
+mat-spinner {
+    justify-self: center;
+    align-self: center;
+    grid-column: 2;
+}

@@ -20,13 +20,13 @@ import { ActiveNavElement } from 'src/app/shared/components/navbar/navbar.compon
 export class ScheduleComponent implements OnInit, OnDestroy {
   activeNavElement: ActiveNavElement = ActiveNavElement.SCHEDULE;
   
-  subjects: Subject[] = [];
+  subjects: Subject[];
   private subjectsChange: rxSubject<Subject[]> = new rxSubject<Subject[]>();
 
-  lessons: Lesson[] = [];
+  lessons: Lesson[];
   private lessonsChange: rxSubject<Lesson[]> = new rxSubject<Lesson[]>();
 
-  queue: LessonOccurrence[] = [];
+  queue: LessonOccurrence[];
   private queueChange: rxSubject<LessonOccurrence[]> = new rxSubject<LessonOccurrence[]>();
 
   currentSubject: Subject;

@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatButtonModule,
     MatTooltipModule,
     MatSnackBarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatIconModule,
@@ -34,7 +36,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatButtonModule,
     MatTooltipModule,
     MatSnackBarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule {}

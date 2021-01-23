@@ -25,3 +25,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .error-snackbar .mat-simple-snackbar-action {
     color: white;
 }
+
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #72272A;
+}
