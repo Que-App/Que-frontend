@@ -27,4 +27,13 @@ export class SnackBarHandlerService {
       panelClass: ['error-snackbar']
     })
   }
+
+  openNoClosingErrorSnackBar(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 0,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+      panelClass: ['error-snackbar']
+    })
+  }
 }

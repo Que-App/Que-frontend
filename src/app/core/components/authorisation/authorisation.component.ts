@@ -11,7 +11,6 @@ import { AuthenticationService } from 'src/app/auth/services/authentication.serv
 export class AuthorisationComponent implements OnInit {
 
   constructor(
-    private router: Router,
     private authenticationService: AuthenticationService
     ) { }
 

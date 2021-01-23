@@ -18,6 +18,7 @@ import { ErrorService } from './shared/services/error.service';
 import { SettingsModule } from './modules/settings/settings.module';
 import { QueuesModule } from './modules/queues/queues.module';
 import { PipesModule } from './pipes/pipes.module';
+import { MobileBlockerModule } from './modules/mobile-blocker/mobile-blocker.module'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { PipesModule } from './pipes/pipes.module';
     DataModule,
     SettingsModule,
     QueuesModule,
-    PipesModule
+    PipesModule,
+    MobileBlockerModule
   ],
   providers: [
     DatePipe,

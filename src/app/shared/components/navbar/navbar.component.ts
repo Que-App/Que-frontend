@@ -35,8 +35,7 @@ export class NavbarComponent implements OnInit {
     { icon: 'save_alt', text: 'INCOMING' + '\n' + 'REQUESTS', link: 'exchanges/incoming', verifier: ActiveNavElement.EXCHANGE_INCOMING},
     { icon: 'publish', text: 'OUTGOING' + '\n' + 'REQUESTS', link: 'exchanges/outgoing', verifier: ActiveNavElement.EXCHANGE_OUTGOING},
     { icon: 'accessibility_new', text: 'YOUR' + '\n' + 'QUEUE', link: 'queue', verifier: ActiveNavElement.QUEUE},
-    { icon: 'description', text: 'NOTES', link: 'https://zskpoznan.sharepoint.com/sites/Notatki2B/Shared%20Documents/Forms/AllItems.aspx', verifier: ActiveNavElement.NOTES},
-
+    { icon: 'description', text: 'NOTES', link: 'https://zskpoznan.sharepoint.com/sites/Notatki2B/Shared%20Documents/Forms/AllItems.aspx', verifier: ActiveNavElement.NOTES}
   ]
 
   constructor(
