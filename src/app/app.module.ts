@@ -17,7 +17,6 @@ import { JwtInterceptor } from './auth/services/jwt-interceptor.service';
 import { ErrorService } from './shared/services/error.service';
 import { SettingsModule } from './modules/settings/settings.module';
 import { QueuesModule } from './modules/queues/queues.module';
-import { HourPrinterPipe } from './pipes/hour-printer.pipe';
 import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({

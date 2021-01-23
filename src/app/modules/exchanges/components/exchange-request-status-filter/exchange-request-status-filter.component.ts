@@ -9,7 +9,6 @@ import { OrderHandlerService } from '../../services/order-handler.service';
   styleUrls: ['./exchange-request-status-filter.component.scss']
 })
 export class ExchangeRequestStatusFilterComponent implements OnInit, OnDestroy {
-  navPathList: string[] = ['home', 'exchanges', 'incoming'];
   requestStatuses: string[] = ['All', RequestStatus.PENDING, RequestStatus.ACCEPTED, RequestStatus.DECLINED, RequestStatus.INVALID];
   
   selectedFilter: string = this.requestStatuses[0];

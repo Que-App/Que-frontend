@@ -12,7 +12,6 @@ export interface navElement {
 }
 
 export enum ActiveNavElement {
-  HOME = 'home',
   SCHEDULE = 'schedule',
   EXCHANGE_SEND = 'exchange_send',
   EXCHANGE_INCOMING = 'exchange_incoming',
@@ -31,7 +30,6 @@ export class NavbarComponent implements OnInit {
   @Input('active') activeNavElement: ActiveNavElement;
 
   list: navElement[] = [
-    { icon: 'home', text: 'HOME', link: '', verifier: ActiveNavElement.HOME},
     { icon: 'event', text: 'SCHEDULE', link: 'schedule', verifier: ActiveNavElement.SCHEDULE},
     { icon: 'swap_horiz', text: 'EXCHANGE' + '\n' + 'REQUEST', link: 'exchanges', verifier: ActiveNavElement.EXCHANGE_SEND},
     { icon: 'save_alt', text: 'INCOMING' + '\n' + 'REQUESTS', link: 'exchanges/incoming', verifier: ActiveNavElement.EXCHANGE_INCOMING},

@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuardService } from './auth/services/auth-guard.service';
 import { AuthorisationComponent } from './core/components/authorisation/authorisation.component';
-import { HomeComponent } from './core/components/home/home.component';
 import { ExchangesComponent } from './modules/exchanges/layouts/exchanges/exchanges.component';
 import { IncomingExchangesComponent } from './modules/exchanges/layouts/incoming-exchanges/incoming-exchanges.component';
 import { OutgoingExchangesComponent } from './modules/exchanges/layouts/outgoing-exchanges/outgoing-exchanges.component';
@@ -13,7 +12,6 @@ import { ChangePasswordComponent } from './modules/settings/layouts/change-passw
 
 const routes: Routes = [
   { path: 'auth', component: AuthorisationComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
   { path: 'exchanges', component: ExchangesComponent, canActivate: [AuthGuardService] },
   { path: 'exchanges/incoming', component: IncomingExchangesComponent, canActivate: [AuthGuardService] },
   { path: 'exchanges/outgoing', component: OutgoingExchangesComponent, canActivate: [AuthGuardService] },
@@ -21,7 +19,7 @@ const routes: Routes = [
   { path: 'settings/change-password', component: ChangePasswordComponent, canActivate: [AuthGuardService] },
   { path: 'settings', redirectTo: '/settings/change-password', pathMatch: 'full'},
   { path: 'queue', component: QueueComponent, canActivate: [AuthGuardService] },
-  { path: '**', redirectTo: '/home', pathMatch: 'full'},
+  { path: '**', redirectTo: '/schedule', pathMatch: 'full'},
 ];
 
 @NgModule({
