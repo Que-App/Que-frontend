@@ -1,16 +1,13 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
-import { Subscription } from 'rxjs';
+import { Observable, merge } from 'rxjs';
+import { filter, flatMap, take, tap, toArray } from 'rxjs/operators';
 import { LessonApiService } from 'src/app/data/api/lesson-api.service';
 import { OccurrenceApiService } from 'src/app/data/api/occurrence-api.service';
 import { SubjectApiService } from 'src/app/data/api/subject-api.service';
-import { UserApiService } from 'src/app/data/api/user-api.service';
-import { Lesson } from 'src/app/data/entities/lesson';
 import { LessonOccurrence } from 'src/app/data/entities/lessonOccurrence';
-import { Subject } from 'src/app/data/entities/subject';
 import { ActiveNavElement } from 'src/app/shared/components/navbar/navbar.component';
-import { OccurrenceTail } from '../../components/occurrence-tail/occurrence-tail.component';
 
 @Component({
   selector: 'app-queue',
@@ -22,7 +19,7 @@ export class QueueComponent implements OnInit {
 
   userId: string = jwtDecode<JwtPayload>(localStorage.getItem('token')).sub;
 
-  userOccurrences: OccurrenceTail[] = [];
+  userOccurrences: LessonOccurrence[] = [];
   
   constructor(
     private subjectApi: SubjectApiService,
@@ -32,52 +29,42 @@ export class QueueComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.fetchQueues();
-    this.fetchSubjects();
+    this.fetchOccurrences(8);
   }
 
-  fetchQueues() {
-
-
-    //1 past lesson if pastHour > currentHour-45
-
-   
+  fetchOccurrences(num: number) {
+    merge(this.fetchNextUserOccurrences(num), this.fetchPastUserOccurrence()).pipe(
+      toArray(),
+      tap(occurrences => occurrences.sort((a, b) => (+this.datePipe.transform(a.date, 'yyyyMMdd')) - (+this.datePipe.transform(b.date, 'yyyyMMdd')))),
+    ).subscribe(occurrences => this.userOccurrences = occurrences);
   }
 
-  fetchSubjects() {
-    this.subjectApi.getAllSubjects().subscribe(subjects => {
-      subjects.forEach(subject => {
-        if(this.userOccurrences.length < 9) this.fetchLessons(subject);
-        else console.log('a');
-      });
-    })
+  fetchPastUserOccurrence(): Observable<LessonOccurrence> {
+    return this.occurrenceApi.updateOccurrences().pipe(
+      flatMap(() => this.occurrenceApi.getLastOccurrence()),
+      filter(occurrence => this.isLessonOccurrenceCurrent(occurrence)),
+    );
   }
 
-  fetchLessons(subject: Subject) {
-    this.lessonApi.getLessons(subject.id).subscribe(lessons => {
-      lessons.forEach(lesson => {
-        if(this.userOccurrences.length < 9) this.fetchOccurrences(subject, lesson);
-        else console.log('b');
-      })
-    }) 
+  fetchNextUserOccurrences(num: number): Observable<LessonOccurrence> {
+    return this.subjectApi.getAllSubjects().pipe(
+      flatMap(subjects => subjects),
+      flatMap(subject => this.lessonApi.getLessons(subject.id).pipe(
+        flatMap(lessons => lessons),
+        tap(lesson => lesson["subject"] = subject)
+      )),
+      flatMap(lesson => this.occurrenceApi.getNext(lesson.id, 21).pipe(
+        flatMap(occurrences => occurrences),
+        tap(occurrence => occurrence["lesson"] = lesson)
+      )),
+      filter(occurrence => occurrence.userId === (+this.userId)),
+      take(num)
+    );
   }
 
-  fetchOccurrences(subject: Subject, lesson: Lesson) {
-    let num: number = 1;
-
-    this.occurrenceApi.getNext(lesson.id, 21).subscribe(occurrences => {
-      occurrences.forEach(occurrence => {
-        if(this.userOccurrences.length < 9 && occurrence.userId === (+this.userId)) {
-          this.userOccurrences.push({subject, lesson, occurrence, num})
-          num++;
-        } else {
-          this.userOccurrences.sort((a, b) => (+this.datePipe.transform(a.occurrence.date, 'yyyyMMdd')) - (+this.datePipe.transform(b.occurrence.date, 'yyyyMMdd')));
-          console.log('xd')
-          return;
-        };
-      });
-    })
-    
+  isLessonOccurrenceCurrent(occurrence: LessonOccurrence): boolean {
+    return new Date(this.datePipe.transform(occurrence.date + ', ' + occurrence.time)).getTime() >= new Date().setMinutes(new Date().getMinutes() - 45);
   }
+  
 
 }

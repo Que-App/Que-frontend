@@ -1,7 +1,6 @@
 <div class="layout-organizer">
     <app-navbar [active]="activeNavElement"></app-navbar>
     <section>
-        <app-occurrence-tail *ngFor="let occurrence of userOccurrences" [data]="occurrence"></app-occurrence-tail>
-
+        <app-occurrence-tail *ngFor="let occurrence of userOccurrences; let i = index" [occurrence]="occurrence" [pointer]="i"></app-occurrence-tail>
     </section>
 </div>

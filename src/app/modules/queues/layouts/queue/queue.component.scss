@@ -9,8 +9,12 @@
 section {
     margin-top: $navbarheight;
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    width: 60%;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }

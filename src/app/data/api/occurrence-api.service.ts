@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Predicate } from '@angular/core';
 import { Observable } from 'rxjs';
-import { filter, flatMap, toArray } from 'rxjs/operators';
+import { filter, flatMap, map, take, toArray } from 'rxjs/operators';
 
 import { Globals } from '../../globals';
 import { LessonOccurrence } from '../entities/lessonOccurrence'
@@ -16,9 +16,22 @@ export class OccurrenceApiService {
     private globals: Globals
   ) { }
 
-  getPast(lessonId: string, num: number): Observable<LessonOccurrence[]> {
+  getPast(num: number): Observable<LessonOccurrence[]> {
+    const requestUrl = `${this.globals.BASE_URL}/occurrences/past/${num}`;
+    return this.http.get<LessonOccurrence[]>(requestUrl);
+  }
+
+  getPastForLesson(lessonId: string, num: number): Observable<LessonOccurrence[]> {
     const requestUrl = `${this.globals.BASE_URL}/occurrences/past/${lessonId}/${num}`;
     return this.http.get<LessonOccurrence[]>(requestUrl);
+  }
+
+  getLastOccurrence(): Observable<LessonOccurrence> {
+    const requestUrl = `${this.globals.BASE_URL}/occurrences/past/1`;
+    return this.http.get<LessonOccurrence[]>(requestUrl).pipe(
+      flatMap(occurrences => occurrences),
+      take(1)
+    );
   }
 
   getNext(lessonId: string, num: number): Observable<LessonOccurrence[]> {
@@ -33,5 +46,10 @@ export class OccurrenceApiService {
       filter(predicate),
       toArray()
     );
+  }
+
+  updateOccurrences() {
+    const requestUrl = `${this.globals.BASE_URL}/occurrences/update`;
+    return this.http.get(requestUrl);
   }
 }

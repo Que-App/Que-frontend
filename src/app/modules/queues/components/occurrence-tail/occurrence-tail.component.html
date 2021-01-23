@@ -1,18 +1,17 @@
 <section>
     <div class="date-container">
-        <p class="date">{{ data.occurrence.date | date: "dd.MM" }}</p>
+        <p class="date">{{ occurrence.date | date: "dd.MM" }}</p>
 
     </div>
     <div class="info-container">
         <div class="value-container">
             <p class="description">Subject: </p>
-            <p class="value">{{ data.subject.name }}</p>
+            <p class="value">{{ occurrence["lesson"]["subject"]["name"] }}</p>
         </div>
         <div class="value-container">
             <p class="description">Hour: </p>
-            <p class="value">{{ data.lesson.time | hourPrinter }}</p>
+            <p class="value">{{ occurrence["lesson"]["time"] | hourPrinter }}</p>
         </div>
-        <p class="number">{{ data.num }}</p>
+        <p class="number">{{ pointer + 1 }}</p>
     </div>
-    <p>{{data.occurrence.date}}</p>
 </section>

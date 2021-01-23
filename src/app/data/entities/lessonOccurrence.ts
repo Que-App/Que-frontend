@@ -3,5 +3,6 @@ export interface LessonOccurrence {
     userId: number;
     lessonIndex: number;
     date: Date;
+    time: string;
     username: string;
 }
