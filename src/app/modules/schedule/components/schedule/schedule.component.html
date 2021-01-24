@@ -9,17 +9,19 @@
                     </mat-list-option>
                 </mat-selection-list>
             </div>
+            <app-divider></app-divider>
             <div class="container">
                 <mat-selection-list #lesson [multiple]="false">
                     <mat-list-option *ngFor="let lesson of lessons" (click)="setCurrentObject('lesson', lesson)">
-                    {{ lesson.nextDate | date: "EEEE" }}<br>{{ lesson.nextDate | date: "dd/MM/yyyy" }}
+                    {{ lesson.nextDate | date: "EEEE" }}<br>{{ lesson.time | hourPrinter}}
                     </mat-list-option>
                 </mat-selection-list>
             </div>
+            <app-divider></app-divider>
             <div class="container">
                 <mat-list #occurrences>
                     <mat-list-item class="occurrence-tile" *ngFor="let occurrence of queue">
-                    {{ occurrence.username }}<br>{{ occurrence.date | date: "dd/MM/yyyy"}}
+                    {{ occurrence.username }}<br>{{ occurrence.date | date: "dd.MM.yyyy"}}
                     </mat-list-item>
                 </mat-list>
             </div>

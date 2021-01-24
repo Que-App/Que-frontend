@@ -1,0 +1,27 @@
+@import 'src/variables.scss';
+
+section {
+    height: 100%;
+    position: relative;
+}
+
+.line {
+    border-left: solid 1px black;
+    width: 1px;
+    height: 100%;
+}
+
+mat-icon {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    background-color: white;
+    color: $maincolor;
+    cursor: default;
+    z-index: 1000;
+}

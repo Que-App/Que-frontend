@@ -60,3 +60,10 @@ button {
     font-size: 1.3em;
     margin-top: 2em;
 }
+
+@media only screen and (max-height: 680px) {
+    .forms-container {
+        font-size: 0.8em;
+        padding: 25px;
+    }
+}

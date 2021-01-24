@@ -10,16 +10,13 @@ section {
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1px 1fr 1px 1fr;
     grid-template-rows: 1fr;
     overflow: hidden;
     margin-top: $navbarheight;
 }
 
 .container {
-    border: 1px solid $maincolor;
-    border-top: none;
-    border-bottom: none;
     overflow: auto;
 }
 
