@@ -14,7 +14,7 @@ export class IncomingExchangesComponent implements OnInit, OnDestroy {
   exchangeNavIcon: string = 'incomingRequests';
   requestType: string = 'incoming';
   
-  allRequests: ExchangeRequest[] = [];
+  allRequests: ExchangeRequest[];
   allRequestsChange: rxSubject<ExchangeRequest[]> = new rxSubject<ExchangeRequest[]>();
   
   filteredRequests: ExchangeRequest[] = [];

@@ -1,14 +1,19 @@
 <div class="layout-organizer">
     <app-navbar [active]="activeNavElement"></app-navbar>
     <section>
-        <div class="filter-container">
-            <app-exchange-request-status-filter [requestsChange]="allRequestsChange" (filteredRequests)="setFilteredRequests($event)"></app-exchange-request-status-filter>
-        </div>
-        <div class="requests-container" *ngIf="filteredRequests.length > 0; else noRequestInfo">
-            <app-request-tail *ngFor="let request of filteredRequests" [request]="request" [requestType]="requestType"></app-request-tail>
-        </div>
-        <ng-template #noRequestInfo>
-            <h2 class="no-request-info">There is no request that matched selected filters.</h2>
+        <ng-container>
+            <div class="filter-container">
+                <app-exchange-request-status-filter [requestsChange]="allRequestsChange" (filteredRequests)="setFilteredRequests($event)"></app-exchange-request-status-filter>
+            </div>
+            <div class="requests-container" *ngIf="filteredRequests.length > 0; else noRequestInfo">
+                <app-request-tail *ngFor="let request of filteredRequests" [request]="request" [requestType]="requestType"></app-request-tail>
+            </div>
+            <ng-template #noRequestInfo>
+                <h2 class="no-request-info">There is no request that matched selected filters.</h2>
+            </ng-template>
+        </ng-container>
+        <ng-template #loading>
+            <mat-spinner></mat-spinner>
         </ng-template>
     </section>
 </div>

@@ -13,7 +13,7 @@ export class ExchangeRequestStatusFilterComponent implements OnInit, OnDestroy {
   
   selectedFilter: string = this.requestStatuses[0];
 
-  @Input() allRequests: ExchangeRequest[] = [];
+  @Input() allRequests: ExchangeRequest[];
   @Input('requestsChange') private allRequestsChange: rxSubject<ExchangeRequest[]> = new rxSubject<ExchangeRequest[]>();
   @Output('filteredRequests') filteredRequests: EventEmitter<ExchangeRequest[]> = new EventEmitter<ExchangeRequest[]>();
 

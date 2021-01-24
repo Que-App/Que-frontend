@@ -1,6 +1,9 @@
 <div class="layout-organizer">
     <app-navbar [active]="activeNavElement"></app-navbar>
-    <section>
+    <section *ngIf="userOccurrences; else loading">
         <app-occurrence-tail *ngFor="let occurrence of userOccurrences; let i = index" [occurrence]="occurrence" [pointer]="i"></app-occurrence-tail>
     </section>
+    <ng-template #loading>
+        <mat-spinner></mat-spinner>
+    </ng-template>
 </div>
