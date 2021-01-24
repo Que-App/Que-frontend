@@ -1,51 +1,97 @@
 @import 'src/variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
 
-.main-container {
-    background-color: #f4f4f4;
+.layout-organizer {
+    height: 100%;
+    width: 100%;
     display: flex;
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    height: 60%;
+    width: 65%;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .login-container {
+    height: 100%;
+    width: 45%;
+    background-color: white;
     display: flex;
     flex-direction: column;
-    justify-items: center;
-    align-content: center;
-    align-self: center;
-    margin: auto;
+    justify-content: center;
+    align-items: center;
 }
 
-.avatar-icon {
-    font-size: 130px;
-    height: 130px;
-    width: 130px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    color: $maincolor;
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
 }
 
-input[type=text], input[type=password] {
-    border: 1px solid $maincolor;
-    border-radius: 4px;
-    padding: 8px 20px;
-    margin: 5px 30px;
-    font-size: large;
+mat-form-field {
+    width: 100%;
 }
 
-input[type=submit] {
-    border: none;
-    border-radius: 4px;
+/* Change label color on focused */
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: $secondcolor !important;
+}
+
+/* underline border color on focused */
+::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+    background-color: $secondcolor !important;
+}
+
+button {
+    width: 50%;
     background-color: $maincolor;
-    padding: 8px 20px;
-    margin: 10px 30px;
     color: white;
-    cursor: pointer;
+    margin-top: 10%;
 }
 
-input[type=submit]:hover, input[type=submit]:active {
-    background-color: #29538a;
-    outline: none;
-    border: none;
+.logo-container {
+    height: 100%;
+    width: 55%;
+    background-color: #f4f4f4;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    font-family: 'Lobster Two', cursive;
+    font-size: 4em;
+    margin: 0;
+    position: absolute;
+    align-self: center;
+}
+
+.triangle-left {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 250px 250px 0 0;
+    border-color: $secondcolor transparent transparent transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.triangle-right {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 250px 250px;
+    border-color: transparent transparent $maincolor transparent;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }

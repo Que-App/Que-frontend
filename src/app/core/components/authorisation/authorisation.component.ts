@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+
 
 import { AuthenticationService } from 'src/app/auth/services/authentication.service'
 
@@ -8,14 +10,20 @@ import { AuthenticationService } from 'src/app/auth/services/authentication.serv
   styleUrls: ['./authorisation.component.scss']
 })
 export class AuthorisationComponent implements OnInit {
+  loginForm: FormGroup = this.formBuilder.group({
+    username: ['', Validators.required],
+    password: ['', Validators.required]
+});
+
 
   constructor(
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private formBuilder: FormBuilder
     ) { }
 
   ngOnInit() {}
 
-  logIn(login: string, password: string) {
-    this.authenticationService.logIn(login, password);
+  logIn(form: NgForm) {
+    this.authenticationService.logIn(form.value.username, form.value.password);
   }
 }

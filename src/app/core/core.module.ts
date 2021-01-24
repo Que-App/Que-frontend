@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material.module';
 import { AuthorisationComponent } from './components/authorisation/authorisation.component';
 import { SharedModule } from '../shared/shared.module'
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { SharedModule } from '../shared/shared.module'
   imports: [
     CommonModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   exports: [
     AuthorisationComponent

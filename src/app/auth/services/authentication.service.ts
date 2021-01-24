@@ -18,7 +18,6 @@ export class AuthenticationService {
     if(localStorage.getItem('token') != null) this.logOut();
     this.userApi.authUser(username, password).subscribe(authResponse => {
       localStorage.setItem('token', authResponse.token);
-      this.router.navigateByUrl('/schedule');
     });
   }
 
