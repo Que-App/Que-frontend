@@ -12,7 +12,13 @@
                     <input matInput type="password" maxlength="30" name="password" formControlName="password" autocomplete="on">
                 </mat-form-field>
 
-                <button mat-raised-button type="submit">Login</button>
+                <button class="login-button" [disabled]="loading" mat-raised-button type="submit">
+                    <mat-spinner *ngIf="loading; else login" class="loading" [diameter]="24" ></mat-spinner>
+                    <ng-template #login>
+                        <p class="login-text">Login</p>
+                    </ng-template>
+
+                </button>
             </form>
         </div>
         <div class="logo-container">

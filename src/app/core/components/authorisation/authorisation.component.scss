@@ -50,11 +50,19 @@ mat-form-field {
     background-color: $secondcolor !important;
 }
 
-button {
+.login-button {
     width: 50%;
     background-color: $maincolor;
     color: white;
     margin-top: 10%;
+}
+
+.loading {
+    margin: 6px auto;
+}
+
+.login-text {
+    margin: 0;
 }
 
 .logo-container {
@@ -78,7 +86,7 @@ button {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 250px 250px 0 0;
+    border-width: 38vh 38vh 0 0;
     border-color: $secondcolor transparent transparent transparent;
     position: absolute;
     left: 0;
@@ -89,7 +97,7 @@ button {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 0 250px 250px;
+    border-width: 0 0 38vh 38vh;
     border-color: transparent transparent $maincolor transparent;
     position: absolute;
     right: 0;
