@@ -1,7 +1,7 @@
 <div class="layout-organizer">
     <app-navbar [active]="activeNavElement"></app-navbar>
     <section>
-        <ng-container>
+        <ng-container *ngIf="allRequests; else loading">
             <div class="filter-container">
                 <app-exchange-request-status-filter [requestsChange]="allRequestsChange" (filteredRequests)="setFilteredRequests($event)"></app-exchange-request-status-filter>
             </div>

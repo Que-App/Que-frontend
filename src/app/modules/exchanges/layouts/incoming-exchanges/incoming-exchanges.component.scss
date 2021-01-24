@@ -31,6 +31,12 @@ section {
     transform: translateY(-50%);
 }
 
+mat-spinner {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 app-request-tail {
     width: 60%;
 }

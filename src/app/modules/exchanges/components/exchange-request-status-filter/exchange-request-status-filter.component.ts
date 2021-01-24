@@ -25,8 +25,8 @@ export class ExchangeRequestStatusFilterComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.allRequestsChange.subscribe(requests => {
-      this.allRequests = requests
-      this.filterRequests();
+      this.allRequests = requests 
+      this.filterRequests(); 
     });
   }
 

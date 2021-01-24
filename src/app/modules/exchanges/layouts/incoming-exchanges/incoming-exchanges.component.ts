@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject as rxSubject, Subscription } from 'rxjs';
+import { ReplaySubject, Subscription } from 'rxjs';
 import { ExchangeApiService } from 'src/app/data/api/exchange-api.service';
 import { ExchangeRequest } from 'src/app/data/entities/exchangeRequest';
 import { ActiveNavElement } from 'src/app/shared/components/navbar/navbar.component';
@@ -15,7 +15,7 @@ export class IncomingExchangesComponent implements OnInit, OnDestroy {
   requestType: string = 'incoming';
   
   allRequests: ExchangeRequest[];
-  allRequestsChange: rxSubject<ExchangeRequest[]> = new rxSubject<ExchangeRequest[]>();
+  allRequestsChange: ReplaySubject<ExchangeRequest[]> = new ReplaySubject<ExchangeRequest[]>();
   
   filteredRequests: ExchangeRequest[] = [];
 
@@ -36,7 +36,7 @@ export class IncomingExchangesComponent implements OnInit, OnDestroy {
   fetchRequests() {
     this.subscription = this.exchangeApi.getRequestsToUser().subscribe(requests => {
       this.allRequests = requests;
-      this.allRequestsChange.next(this.allRequests);
+      this.allRequestsChange.next(requests);
     });
   }
 
