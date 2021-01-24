@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Globals } from 'src/app/globals';
 
 
 import { AuthenticationService } from 'src/app/auth/services/authentication.service'
@@ -12,6 +13,7 @@ import { AuthenticationService } from 'src/app/auth/services/authentication.serv
 })
 export class AuthorisationComponent implements OnInit {
   loading: boolean = false;
+  version: string = this.globals.VERSION;
 
   loginForm: FormGroup = this.formBuilder.group({
     username: ['', Validators.required],
@@ -22,7 +24,8 @@ export class AuthorisationComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private globals: Globals
     ) { }
 
   ngOnInit() {}
