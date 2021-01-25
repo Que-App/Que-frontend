@@ -1,8 +1,10 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import jwtDecode, { JwtPayload } from 'jwt-decode';
+
 import { Observable, merge } from 'rxjs';
 import { filter, flatMap, take, tap, toArray } from 'rxjs/operators';
+
+import jwtDecode, { JwtPayload } from 'jwt-decode';
 import { LessonApiService } from 'src/app/data/api/lesson-api.service';
 import { OccurrenceApiService } from 'src/app/data/api/occurrence-api.service';
 import { SubjectApiService } from 'src/app/data/api/subject-api.service';
@@ -19,7 +21,7 @@ export class QueueComponent implements OnInit {
 
   userId: string = jwtDecode<JwtPayload>(localStorage.getItem('token')).sub;
 
-  userOccurrences: LessonOccurrence[] = [];
+  userOccurrences: LessonOccurrence[];
   
   constructor(
     private subjectApi: SubjectApiService,
@@ -65,6 +67,6 @@ export class QueueComponent implements OnInit {
   isLessonOccurrenceCurrent(occurrence: LessonOccurrence): boolean {
     return new Date(this.datePipe.transform(occurrence.date + ', ' + occurrence.time)).getTime() >= new Date().setMinutes(new Date().getMinutes() - 45);
   }
-  
 
+  
 }

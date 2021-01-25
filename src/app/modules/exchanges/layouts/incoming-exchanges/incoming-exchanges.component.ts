@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+
 import { ReplaySubject, Subscription } from 'rxjs';
 import { ExchangeApiService } from 'src/app/data/api/exchange-api.service';
 import { ExchangeRequest } from 'src/app/data/entities/exchangeRequest';

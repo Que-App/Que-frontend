@@ -1,5 +1,4 @@
 @import 'src/variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
 
 .layout-organizer {
     height: 100%;
@@ -75,7 +74,7 @@ mat-form-field {
 }
 
 .logo {
-    font-family: 'Lobster Two', cursive;
+    font-family: $logofont;
     font-size: 4em;
     margin: 0;
     position: absolute;

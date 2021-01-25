@@ -1,5 +1,4 @@
 @import 'src/variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
 
 section {
     width: 100%;
@@ -12,7 +11,7 @@ section {
 }
 
 .title {
-    font-family: 'Lobster Two', cursive;
+    font-family: $logofont;
     font-size: 3em;
     margin: 0;
 }

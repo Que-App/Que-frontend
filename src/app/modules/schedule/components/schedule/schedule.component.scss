@@ -25,7 +25,7 @@ section {
 }
 
 mat-spinner {
-    justify-self: center;
-    align-self: center;
-    grid-column: 2;
+    position: fixed;
+    left: 47%;
+    top: 50%;
 }

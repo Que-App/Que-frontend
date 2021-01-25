@@ -21,7 +21,6 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   activeNavElement: ActiveNavElement = ActiveNavElement.SCHEDULE;
   
   subjects: Subject[];
-  private subjectsChange: rxSubject<Subject[]> = new rxSubject<Subject[]>();
 
   lessons: Lesson[];
   private lessonsChange: rxSubject<Lesson[]> = new rxSubject<Lesson[]>();

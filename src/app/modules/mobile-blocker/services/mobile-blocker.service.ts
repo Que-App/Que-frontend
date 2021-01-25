@@ -1,6 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
+
 import { SnackBarHandlerService } from 'src/app/shared/services/snack-bar-handler.service';
 
 @Injectable({

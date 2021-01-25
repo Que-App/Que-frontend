@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
+import { Observable } from 'rxjs';
 import { Globals } from 'src/app/globals';
 import { Subject } from '../entities/subject';
 

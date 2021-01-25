@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+
 import { Subject as rxSubject, Subscription } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
+
 import { LessonApiService } from 'src/app/data/api/lesson-api.service';
 import { OccurrenceApiService } from 'src/app/data/api/occurrence-api.service';
 import { SubjectApiService } from 'src/app/data/api/subject-api.service';
@@ -9,9 +12,7 @@ import { Lesson } from 'src/app/data/entities/lesson';
 import { LessonOccurrence } from 'src/app/data/entities/lessonOccurrence';
 import { Subject } from 'src/app/data/entities/subject';
 import { EntityType } from '../../enums/entityType.enum'
-import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
-import { DatePipe } from '@angular/common';
 import { ActiveNavElement } from 'src/app/shared/components/navbar/navbar.component';
 import { SnackBarHandlerService } from 'src/app/shared/services/snack-bar-handler.service';
 

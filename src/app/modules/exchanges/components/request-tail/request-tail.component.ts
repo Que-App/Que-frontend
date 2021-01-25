@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TooltipPosition } from '@angular/material/tooltip';
+
 import { ExchangeApiService } from 'src/app/data/api/exchange-api.service';
 import { ExchangeRequest, RequestStatus } from 'src/app/data/entities/exchangeRequest';
 

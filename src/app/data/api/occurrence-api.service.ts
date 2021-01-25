@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Predicate } from '@angular/core';
-import { Observable } from 'rxjs';
-import { filter, flatMap, map, take, toArray } from 'rxjs/operators';
 
+import { Observable } from 'rxjs';
+import { filter, flatMap, take, toArray } from 'rxjs/operators';
 import { Globals } from '../../globals';
 import { LessonOccurrence } from '../entities/lessonOccurrence'
 

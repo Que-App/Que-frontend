@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import jwt_decode, { JwtPayload } from 'jwt-decode';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { UserApiService } from 'src/app/data/api/user-api.service';
 
 @Injectable({
@@ -21,7 +21,7 @@ export class AuthenticationService {
     return this.userApi.authUser(username, password).pipe(
       map(authResponse => {
         localStorage.setItem('token', authResponse.token);
-      }))
+      }));
   }
 
   logOut(): void {

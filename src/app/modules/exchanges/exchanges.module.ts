@@ -4,7 +4,6 @@ import { ExchangesComponent } from './layouts/exchanges/exchanges.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material.module';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { ExchangesNavbarComponent } from './components/exchanges-navbar/exchanges-navbar.component';
 import { IncomingExchangesComponent } from './layouts/incoming-exchanges/incoming-exchanges.component';
 import { RouterModule } from '@angular/router';
 import { ExchangeRequestStatusFilterComponent } from './components/exchange-request-status-filter/exchange-request-status-filter.component';
@@ -15,7 +14,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 @NgModule({
-  declarations: [ExchangesComponent, ExchangesNavbarComponent, IncomingExchangesComponent, ExchangeRequestStatusFilterComponent, RequestTailComponent, OutgoingExchangesComponent],
+  declarations: [ExchangesComponent, IncomingExchangesComponent, ExchangeRequestStatusFilterComponent, RequestTailComponent, OutgoingExchangesComponent],
   imports: [
     CommonModule,
     SharedModule,

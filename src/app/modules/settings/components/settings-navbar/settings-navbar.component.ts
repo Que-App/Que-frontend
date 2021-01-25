@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TooltipPosition } from '@angular/material/tooltip';
 import { Router } from '@angular/router';
 

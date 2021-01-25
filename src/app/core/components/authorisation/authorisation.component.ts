@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { Globals } from 'src/app/globals';
-
-
 import { AuthenticationService } from 'src/app/auth/services/authentication.service'
 
 @Component({

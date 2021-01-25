@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { LessonOccurrence } from 'src/app/data/entities/lessonOccurrence';
 
 @Component({
