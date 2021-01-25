@@ -1,27 +1,20 @@
 # QueueAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
+Que is a tool that allows for even, fair and organized distribution of cyclic tasks among the members of a group.
 
-## Development server
+## About
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This implementation of project is made as a proof of concept for one use case specifically – to distribute taking notes in school evenly across the members of the class. Despite that, the idea is more universal and so will be the final implementation of the project, which will allow it to support even more use cases, like household chores, sharing a single item (like computer) or sharing responsibilities to name a few.
 
-## Code scaffolding
+The main idea behind the implementation is that the points of time in which something is happening should be independent of the people assigned to these points in time. As a result of that, if the point in time is drops no one misses his turn, and when the user drops the next user is assigned instead.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+With this solution, each user has no interest of the state of the queue besides his turns, which allows for swaps between users in the same queue or even between queues, which is already implemented.
 
-## Build
+Provided the proof-of-concept implementation will pass the tests and meet our expectations, we seek to further develop and expand this idea which, we hope, will result in publicly available universal solution.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Things I am aware need to be improved
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- [commit convention](https://www.conventionalcommits.org/en/v1.0.0/)
+- Use features of scss
+- Include issue IDs in commit messages instead of branch names
+- Work on mobile and desktop version simultaneously
