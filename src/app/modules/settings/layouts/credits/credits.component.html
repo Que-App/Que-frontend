@@ -1,0 +1,33 @@
+<div class="layout-organizer">
+    <app-navbar></app-navbar>
+    <app-settings-navbar [verifier]="settingsSidebarVerfier"></app-settings-navbar>
+    <section>
+        <div class="main-container" >
+            <h2>Credits</h2>
+            <h4>
+                Que is a tool that allows for even, fair and organized distribution of 
+                cyclic tasks among the members of a group.
+            </h4>
+            <h3>Authors:</h3>
+            <div class="authors-container">
+                <div class="author">
+                    <p class="name">Jan Undrych</p>
+                    <div class="icons-container">
+                        <a href="https://github.com/xsw2-2wsx"><img src="../../../../../assets/icon-github.svg" class="icon"></a>
+                        <a href="https://www.linkedin.com/in/jan-undrych-98a8b5204/"><img src="../../../../../assets/icon-linkedin.svg" class="icon"></a>
+                    </div>
+                </div>
+                <div class="author">
+                    <p class="name">Piotr Wiórek</p>
+                    <div class="icons-container">
+                        <a href="https://github.com/pwiorek"><img src="../../../../../assets/icon-github.svg" class="icon"></a>
+                        <a href="https://www.linkedin.com/in/piotr-wi%C3%B3rek-6448ab196/"><img src="../../../../../assets/icon-linkedin.svg" class="icon"></a>
+                    </div>
+                </div>
+            </div>
+            <a href="https://github.com/Que-App"><img src="../../../../../assets/icon-github.svg" class="big-icon"></a>
+            <p>Project's Github</p>
+            <p class="version">Version: {{ version }}</p>
+        </div>
+    </section>
+</div>

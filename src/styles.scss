@@ -1,13 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+@import 'src/variables.scss';
 
 * {
-    font-family: 'Inter', sans-serif;
-
+    font-family: $mainfont;
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; }
 
 .mat-list-text {
     text-align: center;
@@ -33,5 +31,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .mat-progress-spinner circle, .mat-spinner circle {
-    stroke: #72272A;
+    stroke: $secondcolor;
 }

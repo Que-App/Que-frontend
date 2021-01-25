@@ -11,6 +11,7 @@ import { MobileBlockerService } from './modules/mobile-blocker/services/mobile-b
 import { QueueComponent } from './modules/queues/layouts/queue/queue.component';
 import { ScheduleComponent } from './modules/schedule/components/schedule/schedule.component';
 import { ChangePasswordComponent } from './modules/settings/layouts/change-password/change-password.component';
+import { CreditsComponent } from './modules/settings/layouts/credits/credits.component';
 
 const routes: Routes = [
   { path: 'auth', component: AuthorisationComponent, canActivate: [MobileBlockerService] },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'exchanges/outgoing', component: OutgoingExchangesComponent, canActivate: [AuthGuardService && MobileBlockerService] },
   { path: 'schedule', component: ScheduleComponent, canActivate: [AuthGuardService && MobileBlockerService] },
   { path: 'settings/change-password', component: ChangePasswordComponent, canActivate: [AuthGuardService && MobileBlockerService] },
+  { path: 'settings/credits', component: CreditsComponent, canActivate: [AuthGuardService && MobileBlockerService] },
   { path: 'settings', redirectTo: '/settings/change-password', pathMatch: 'full'},
   { path: 'queue', component: QueueComponent, canActivate: [AuthGuardService && MobileBlockerService] },
   { path: 'mobile-block', component: MobileBlockerComponent },

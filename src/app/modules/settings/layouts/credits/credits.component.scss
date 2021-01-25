@@ -1,0 +1,71 @@
+@import 'src/variables.scss';
+
+.layout-organizer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+section {
+    margin-top: $navbarheight;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container {
+    background-color: white;
+    box-shadow: 0px 0px 42px 14px rgba(170,167,167,0.4);
+    padding: 35px 75px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    text-align: justify;
+    text-justify: auto;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: $secondcolor;
+    text-align: center;
+    margin: 10;
+}
+
+.authors-container {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.name {
+    margin: 0;
+}
+
+.icons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.icon {
+    width: 1.5em;
+}
+
+.big-icon {
+    width: 3em;
+    margin-top: 3em;
+}
+
+.version {
+    transform: translateY(150%);
+}

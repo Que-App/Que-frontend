@@ -23,10 +23,10 @@ export class ExchangesNavbarComponent implements OnInit {
 
   changeIconColor() {
     switch(this.activeIcon) {
-      case 'sendRequest': this.elementRef.nativeElement.querySelector('#send-request-icon').style.color = '#72272A'; break;
-      case 'incomingRequests': this.elementRef.nativeElement.querySelector('#incoming-requests-icon').style.color = '#72272A'; break;
-      case 'allRequests': this.elementRef.nativeElement.querySelector('#all-requests-icon').style.color = '#72272A'; break;
-      case 'outgoingRequests': this.elementRef.nativeElement.querySelector('#outgoing-requests-icon').style.color = '#72272A'; break;
+      case 'sendRequest': this.elementRef.nativeElement.querySelector('#send-request-icon').style.color = '$secondcolor'; break;
+      case 'incomingRequests': this.elementRef.nativeElement.querySelector('#incoming-requests-icon').style.color = '$secondcolor'; break;
+      case 'allRequests': this.elementRef.nativeElement.querySelector('#all-requests-icon').style.color = '$secondcolor'; break;
+      case 'outgoingRequests': this.elementRef.nativeElement.querySelector('#outgoing-requests-icon').style.color = '$secondcolor'; break;
     }
   }
 

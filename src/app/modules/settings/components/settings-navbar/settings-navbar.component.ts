@@ -33,21 +33,9 @@ export class SettingsNavbarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private elementRef: ElementRef
   ) { }
 
-  ngOnInit(): void {
-  //  this.changeIconColor();
-  }
-
-  // changeIconColor() {
-  //   switch(this.activeIcon) {
-  //     case 'sendRequest': this.elementRef.nativeElement.querySelector('#send-request-icon').style.color = '#72272A'; break;
-  //     case 'incomingRequests': this.elementRef.nativeElement.querySelector('#incoming-requests-icon').style.color = '#72272A'; break;
-  //     case 'allRequests': this.elementRef.nativeElement.querySelector('#all-requests-icon').style.color = '#72272A'; break;
-  //     case 'outgoingRequests': this.elementRef.nativeElement.querySelector('#outgoing-requests-icon').style.color = '#72272A'; break;
-  //   }
-  // }
+  ngOnInit(): void {}
 
   routeTo(link: string) {
     this.router.navigateByUrl(link);
