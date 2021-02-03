@@ -1,4 +1,4 @@
-# QueueAngular
+# Que
 
 Que is a tool that allows for even, fair and organized distribution of cyclic tasks among the members of a group.
 
